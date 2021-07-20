@@ -22,7 +22,6 @@ class EmployeesTableSeeder extends Seeder
                 'name' => $faker->name,
                 'email'=> $faker-> email,
                 'phone' => $faker->phoneNumber,
-                'address'=>$faker->address,
                 'dni' => '1750024067'
             ]);
         }

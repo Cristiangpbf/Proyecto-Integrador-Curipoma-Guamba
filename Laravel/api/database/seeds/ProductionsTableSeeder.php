@@ -15,9 +15,9 @@ class ProductionsTableSeeder extends Seeder
         //Crear datos ficticios en la tabla
         for($i = 0; $i < 20; $i++){
             Production::create([
-                'total_sales'=>$faker->randomNumber(2, true),
-                'liters'=>$faker->randomNumber(2, true),
-                'time'=>"{$faker->numberBetween(5, 8)} horas",
+                'total_sales'=>$faker->numberBetween(50,150),
+                'liters'=>$faker->numberBetween(3, 5),
+                'time'=>"{$faker->numberBetween(4, 8)} horas",
                 'performance'=>'Excelente'
             ]);
         }

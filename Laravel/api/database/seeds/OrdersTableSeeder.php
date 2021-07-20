@@ -20,8 +20,8 @@ class OrdersTableSeeder extends Seeder
         for($i = 0; $i < 20; $i++){
             Order::create([
                 'comment'=>$faker->paragraph(1),
-                'state'=>'pendiente',
-                'delivery_date'=>'2022-01-01'
+                'state'=>'entregado',
+                'delivery_date'=>$faker->dateTime
             ]);
         }
     }

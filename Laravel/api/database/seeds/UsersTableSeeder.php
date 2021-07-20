@@ -19,6 +19,11 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => 'Administrador',
             'email' => 'admin@prueba.com',
+            'business_name'=>'Cono Superior',
+            'ruc'=>'00000000001',
+            'phone'=>'0999999999',
+            'address'=>'Condores',
+            'type'=>'admin',
             'password' => $password,
         ]);
 
@@ -26,6 +31,11 @@ class UsersTableSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
             User::create([
                 'name' => $faker->name,
+                'business_name'=>$faker->name,
+                'ruc'=>$faker->creditCardNumber,
+                'phone'=>$faker->phoneNumber,
+                'address'=>$faker->address,
+                'type'=>'client',
                 'email' => $faker->email,
                 'password' => $password,
             ]);

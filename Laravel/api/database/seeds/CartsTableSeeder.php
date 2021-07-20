@@ -19,7 +19,7 @@ class CartsTableSeeder extends Seeder
         //Crear datos ficticios en la tabla
         for($i = 0; $i < 20; $i++){
             Cart::create([
-                'product_units'=>$faker->numberBetween(1, 10)
+                'product_units'=>$faker->numberBetween(1, 500)
             ]);
         }
 
