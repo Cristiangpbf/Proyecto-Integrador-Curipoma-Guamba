@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('consumption_time');
             $table->string('img_url');
             $table->text('description');
-            $table->string('package_amount');/*Unidades que hay en el paquete*/
+            $table->integer('package_amount');/*Unidades que hay en el paquete*/
             $table->timestamps();
         });
     }

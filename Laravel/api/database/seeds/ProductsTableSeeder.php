@@ -23,7 +23,7 @@ class ProductsTableSeeder extends Seeder
                 'consumption_time'=>$faker->sentence,
                 'img_url'=>$faker->imageUrl(),
                 'description'=>$faker->paragraph,
-                'package_amount'=>$faker->numberBetween(20, 50)
+                'package_amount'=>$faker->numberBetween(30, 150)
             ]);
         }
     }

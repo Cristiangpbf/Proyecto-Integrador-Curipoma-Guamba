@@ -19,7 +19,6 @@ class NotificationsTableSeeder extends Seeder
         //Crear datos ficticios en la tabla
         for($i = 0; $i < 20; $i++){
             Notification::create([
-                'status'=>'pendiente',
                 'message'=>$faker->paragraph(1)
             ]);
         }

@@ -20,7 +20,7 @@ class CategoriesTableSeeder extends Seeder
         for($i = 0; $i < 20; $i++){
             $aux = $i+1;
             Category::create([
-                'name'=>"Categoria{$aux}",
+                'name'=>"Categoria {$aux}",
                 'description'=>$faker->paragraph(2 )
             ]);
         }
