@@ -6,7 +6,7 @@ import Routes from '../constants/routes';
 import Navigation from './Navigation';
 import { Layout, Row, Col, Button, Popover } from 'antd';
 import { FacebookOutlined, InstagramOutlined, GithubOutlined, MailOutlined, WhatsAppOutlined } from '@ant-design/icons';
-import logo from '../images/logo-menta.png';
+import logo from '../images/logo.png';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
@@ -93,7 +93,7 @@ const MainLayout = props => {
         <Footer className='footer'>
           <Row>
             <Col xs={ { span: 24 } } md={ 8 } className='logo-blanco'>
-              LOGO
+              <img src={ logo } alt='Logo' height={ 50 } />
             </Col>
 
             <Col xs={ {
@@ -105,9 +105,9 @@ const MainLayout = props => {
                    offset: 3
                  } }
                  className='logo-menta'>
-              Elaborado por: <br />
-              <a href='https://grupomenta.com' rel='noopener noreferrer' target='_blank'>
-                <img src={ logo } alt='Profe a Tiempo' height={ 50 } />
+              {/*Elaborado por: <br />*/}
+              <a rel='noopener noreferrer' target='_blank'>
+
               </a>
             </Col>
 
@@ -121,19 +121,15 @@ const MainLayout = props => {
                  } }
                  className='contact-links'>
               <p><strong>Contáctanos</strong></p>
-              <p><MailOutlined /> <a href='mailto:chalo.salvador@grupomenta.com'>chalo.salvador@grupomenta.com</a></p>
-              <p><WhatsAppOutlined /> <a href='https://wa.me/593984794808' target='_blank' rel='noopener noreferrer'>+593
-                9-8479-4808</a></p>
-              <p><GithubOutlined /> <a href='https://github.com/chalosalvador'
-                                       target='_blank'
-                                       rel='noopener noreferrer'>@chalosalvador</a>
-              </p>
+              <p><MailOutlined /> <a href='mailto:pepepecas@gmail.com'>pepepecas@gmail.com</a></p>
+              <p><WhatsAppOutlined /> <a href='https://wa.me/593981030191' target='_blank' rel='noopener noreferrer'>
+                +593 981030191</a></p>
             </Col>
           </Row>
 
           <Row type='flex' justify='space-between' align='bottom'>
             <Col xs={ 24 } md={ 8 }>
-              { moment().format( 'YYYY' ) } - Para uso libre.
+              { moment().format( 'YYYY' ) }
             </Col>
 
             <Col xs={ 24 } md={ 4 } className='footer-links'>
