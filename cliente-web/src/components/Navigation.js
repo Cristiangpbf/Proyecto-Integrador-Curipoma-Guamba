@@ -54,12 +54,12 @@ const Navigation = ( props ) => {
           <Link to={ Routes.HOME } style={ linkStyle }>Home</Link>
         </Menu.Item>
 
-        <Menu.Item key={ Routes.ARTICLES }>
-          <Link to={ Routes.ARTICLES } style={ linkStyle }>Articles</Link>
+        <Menu.Item key={ Routes.PRODUCTS }>
+          <Link to={ Routes.PRODUCTS } style={ linkStyle }>Productos</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.PRIVATE }>
-          <Link to={ Routes.PRIVATE } style={ linkStyle }>Privada</Link>
+          <Link to={ Routes.PRIVATE } style={ linkStyle }>Privada(PRUEBA)</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.ANTD }>

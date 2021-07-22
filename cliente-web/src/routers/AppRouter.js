@@ -20,12 +20,20 @@ import Loading from '../components/Loading';
  */
 const loadableOptions = { fallback: <Loading /> };
 
+//Hacer referencia a las páginas.
 const AsyncHome = loadable( () => import( '../pages/Index' ), loadableOptions );
 const AsyncLogin = loadable( () => import( '../pages/Login' ), loadableOptions );
 const AsyncRegister = loadable( () => import( '../pages/Register' ), loadableOptions );
-const AsyncPrivate = loadable( () => import( '../pages/Private' ), loadableOptions );
-const AsyncArticles = loadable( () => import( '../pages/Articles' ), loadableOptions );
-const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
+// const AsyncPrivate = loadable( () => import( '../pages/Private' ), loadableOptions );
+// const AsyncArticles = loadable( () => import( '../pages/Articles' ), loadableOptions );
+// const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
+const AsyncEmployee = loadable( () => import( '../pages/Employee' ), loadableOptions );
+const AsyncEmployees = loadable( () => import( '../pages/Employees' ), loadableOptions );
+const AsyncProduct = loadable( () => import( '../pages/Product' ), loadableOptions );
+const AsyncProducts = loadable( () => import( '../pages/Products' ), loadableOptions );
+const AsyncCart = loadable( () => import( '../pages/Cart' ), loadableOptions );
+const AsyncOrder = loadable( () => import( '../pages/Order' ), loadableOptions );
+const AsyncOrders = loadable( () => import( '../pages/Orders' ), loadableOptions );
 const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions );
 const AsyncLogout = loadable( () => import( '../pages/Logout' ), loadableOptions );
 
@@ -46,11 +54,17 @@ const AppRouter = () => (
     <PublicRoute exact path={ Routes.HOME } component={ AsyncHome } />
     <PublicRoute path={ Routes.LOGIN } component={ AsyncLogin } />
     <PublicRoute path={ Routes.REGISTER } component={ AsyncRegister } />
-    <PublicRoute path={ Routes.ARTICLES } component={ AsyncArticles } />
+    {/*<PublicRoute path={ Routes.ARTICLES } component={ AsyncArticles } />*/}
     <PublicRoute path={ Routes.ABOUT } component={ AsyncAbout } />
-
-    <PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />
-    <PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />
+    <PublicRoute path={ Routes.EMPLOYEE } component={ AsyncEmployee } />
+    <PublicRoute path={ Routes.EMPLOYEES } component={ AsyncEmployees } />
+    <PublicRoute path={ Routes.ORDER } component={ AsyncOrder } />
+    <PublicRoute path={ Routes.ORDERS } component={ AsyncOrders } />
+    <PublicRoute path={ Routes.PRODUCT } component={ AsyncProduct } />
+    <PublicRoute path={ Routes.PRODUCTS } component={ AsyncProducts } />
+    <PublicRoute path={ Routes.CART } component={ AsyncCart } />
+    {/*<PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />*/}
+    {/*<PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />*/}
     <PrivateRoute path={ Routes.LOGOUT } component={ AsyncLogout } />
 
     <Route component={ NotFoundPage } />

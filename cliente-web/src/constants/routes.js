@@ -5,7 +5,14 @@
 const publicRoutes = {
   LOGIN: '/ingreso',
   REGISTER: '/registro',
-  ARTICLES: '/articulos',
+  ARTICLES: '/articulos',//
+  EMPLOYEE: 'empleado',
+  EMPLOYEES: 'empleados',
+  ORDER: 'orden',
+  ORDERS: 'ordenes',
+  CART: 'carrito',
+  PRODUCT: 'producto',
+  PRODUCTS: 'productos',
   USERS: '/usuarios',
   USERS_ID: `/usuario/:id`,
   HOME: '/',
