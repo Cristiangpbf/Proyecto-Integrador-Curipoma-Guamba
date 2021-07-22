@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Result } from 'antd';
 import { translateMessage } from '../utils/translateMessage';
 import Routes from '../constants/routes';
+import {Link} from "react-router-dom";
 
 const setStatus = ( status ) => {
   switch( status ) {
@@ -23,7 +24,8 @@ const ShowError = ( { error } ) => {
     <Result status={ setStatus( error.status ) }
             title={ translateMessage( error.error ) }
             subTitle={translateMessage(error.message)}
-            extra={ <Button type='primary'>Back Home</Button> } />
+            extra={ <Link to={ Routes.HOME }><Button type='primary'>Back Home</Button></Link> } />
+
   );
 };
 

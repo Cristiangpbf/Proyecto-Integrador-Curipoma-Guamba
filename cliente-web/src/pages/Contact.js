@@ -2,7 +2,7 @@ import React from 'react';
 const AboutPage = () => (
   <>
     <h1 className='title'>
-      About Page
+      Página de contacto
     </h1>
   </>
 );

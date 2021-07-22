@@ -35,6 +35,8 @@ const AsyncCart = loadable( () => import( '../pages/Cart' ), loadableOptions );
 const AsyncOrder = loadable( () => import( '../pages/Order' ), loadableOptions );
 const AsyncOrders = loadable( () => import( '../pages/Orders' ), loadableOptions );
 const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions );
+const AsyncContact = loadable( () => import( '../pages/Contact' ), loadableOptions );
+
 const AsyncLogout = loadable( () => import( '../pages/Logout' ), loadableOptions );
 
 
@@ -63,6 +65,7 @@ const AppRouter = () => (
     <PublicRoute path={ Routes.PRODUCT } component={ AsyncProduct } />
     <PublicRoute path={ Routes.PRODUCTS } component={ AsyncProducts } />
     <PublicRoute path={ Routes.CART } component={ AsyncCart } />
+    <PublicRoute path={ Routes.CONTACT } component={ AsyncContact } />
     {/*<PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />*/}
     {/*<PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />*/}
     <PrivateRoute path={ Routes.LOGOUT } component={ AsyncLogout } />
