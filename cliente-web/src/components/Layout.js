@@ -5,7 +5,7 @@ import React from 'react';
 import Routes from '../constants/routes';
 import Navigation from './Navigation';
 import { Layout, Row, Col, Button, Popover } from 'antd';
-import { FacebookOutlined, InstagramOutlined, GithubOutlined, MailOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { FacebookOutlined, InstagramOutlined, MailOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import logo from '../images/logo.png';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
@@ -24,7 +24,7 @@ const Footer = Layout.Footer;
  * @constructor
  */
 const MainLayout = props => {
-  console.log( 'props', props );
+  console.log( 'MainLayout props ', props );
   return (
     <div className='app'>
       <Layout>
@@ -59,22 +59,6 @@ const MainLayout = props => {
                       </svg>
                     </Button>
                   </Popover>
-                </Col>
-
-                <Col xs={ 22 } md={ 4 } className='logos-social-header' align='right'>
-                  <a href='https://www.facebook.com'
-                     target='_blank'
-                     rel='noopener noreferrer'
-                     style={ {
-                       marginLeft: 30,
-                       marginRight: 30
-                     } }>
-                    <FacebookOutlined />
-                  </a>
-
-                  <a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
-                    <InstagramOutlined />
-                  </a>
                 </Col>
               </Row>
             </Header>

@@ -1,8 +1,17 @@
 import React from 'react';
 import Routes from '../constants/routes';
 import API from '../data/index';
-import { Button, Col, Form, Input, message, Row, Typography } from 'antd';
-import { LockOutlined, UserOutlined, MailOutlined, EditOutlined, FileTextOutlined } from '@ant-design/icons';
+import {Button, Col, Form, Input, message, Row, Select, Typography} from 'antd';
+import {
+    LockOutlined,
+    UserOutlined,
+    MailOutlined,
+    EditOutlined,
+    FileTextOutlined,
+    TeamOutlined,
+    IdcardOutlined,
+    PhoneOutlined, HomeOutlined
+} from '@ant-design/icons';
 import ErrorList from '../components/ErrorList';
 import { translateMessage } from '../utils/translateMessage';
 import withoutAuth from '../hocs/withoutAuth';
@@ -11,6 +20,7 @@ import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useAuth } from '../providers/Auth';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons/lib';
+import {Option} from "antd/es/mentions";
 
 const { Title } = Typography;
 
@@ -33,16 +43,19 @@ const Register = () => {
 
   const onFinish = async( userData ) => {
     console.log( 'Received values of form: ', userData );
-    const { name, email, password, password_confirmation, editorial, short_bio } = userData;
+    const { name, business_name, ruc , phone , address, type , email, password, password_confirmation} = userData;
 
     try {
       const user = await API.post( '/register', {
-        name,
-        email,
-        password,
-        password_confirmation,
-        editorial,
-        short_bio
+          name,
+          business_name,
+          ruc ,
+          phone ,
+          address,
+          type ,
+          email,
+          password,
+          password_confirmation
       } );
 
       console.log( 'User', user );
@@ -86,6 +99,69 @@ const Register = () => {
             >
               <Input prefix={ <UserOutlined /> } placeholder='Nombre' />
             </Form.Item>
+
+              <Form.Item name='business_name'
+                         rules={ [
+                             {
+                                 required: true,
+                                 message: 'Ingresa el nombre de tu empresa'
+                             }
+                         ] }
+                         hasFeedback
+              >
+                  <Input prefix={ <TeamOutlined /> } placeholder='Nombre de la Empresa' />
+              </Form.Item>
+
+              <Form.Item name='ruc'
+                         rules={ [
+                             {
+                                 required: true,
+                                 message: 'Ingrese su número de ruc'
+                             }
+                         ] }
+                         hasFeedback
+              >
+                  <Input prefix={ <IdcardOutlined /> } placeholder='Número de ruc' />
+              </Form.Item>
+
+              <Form.Item name='phone'
+                         rules={ [
+                             {
+                                 required: true,
+                                 message: 'Ingrese su número de teléfono'
+                             }
+                         ] }
+                         hasFeedback
+              >
+                  <Input prefix={ <PhoneOutlined /> } placeholder='Número de teléfono' />
+              </Form.Item>
+
+              <Form.Item name='address'
+                         rules={ [
+                             {
+                                 required: true,
+                                 message: 'Ingrese su dirección'
+                             }
+                         ] }
+                         hasFeedback
+              >
+                  <Input prefix={ <HomeOutlined /> } placeholder='Dirección' />
+              </Form.Item>
+
+              <Form.Item name='type'
+                         rules={ [
+                             {
+                                 required: true,
+                                 message: 'Ingrese el tipo de elemento'
+                             }
+                         ] }
+                         hasFeedback
+              >
+                  <Select placeholder="Seleccione tipo de usuario">
+                      <Option value="admin">Administrador</Option>
+                      <Option value="client">Cliente</Option>
+                  </Select>
+              </Form.Item>
 
             <Form.Item name='email'
                        rules={ [
@@ -138,35 +214,6 @@ const Register = () => {
               <Input.Password prefix={ <LockOutlined /> }
                               iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                               placeholder='Confirma tu clave' />
-            </Form.Item>
-
-            <Form.Item name='editorial'
-                       rules={ [
-                         {
-                           required: true,
-                           message: 'Ingresa el nombre de la editorial donde trabajas'
-                         }
-                       ] }
-                       hasFeedback
-            >
-              <Input prefix={ <EditOutlined /> } placeholder='Editorial' />
-            </Form.Item>
-
-            <Form.Item name='short_bio'
-                       rules={ [
-                         {
-                           required: true,
-                           message: 'Cuéntanos un poco sobre ti.'
-                         }
-                       ] }
-                       hasFeedback
-            >
-              <Input.TextArea prefix={ <FileTextOutlined /> }
-                              placeholder='Biografía corta'
-                              autoSize={ {
-                                minRows: 2,
-                                maxRows: 6
-                              } } />
             </Form.Item>
 
             <Form.Item>

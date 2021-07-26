@@ -19,7 +19,7 @@ const setStatus = ( status ) => {
 };
 
 const ShowError = ( { error } ) => {
-  console.log( 'props', error.error );
+  console.log( 'props ShowError', error.error );
   return (
     <Result status={ setStatus( error.status ) }
             title={ translateMessage( error.error ) }

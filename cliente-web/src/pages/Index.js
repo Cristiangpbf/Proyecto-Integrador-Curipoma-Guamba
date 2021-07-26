@@ -1,6 +1,6 @@
 import React from 'react';
-import ArticleList from '../components/ArticleList';
-import { useArticleList } from '../data/useArticleList';
+import ProductsList from '../components/ProductsList';
+import { useProductsList } from '../data/useProductsList';
 import ShowError from '../components/ShowError';
 import {Col, Row} from "antd";
 import { Image } from 'antd';
@@ -9,7 +9,7 @@ import Title from "antd/es/typography/Title";
 import Text from "antd/es/typography/Text";
 
 const HomePage = () => {
-  const articles = useArticleList();
+  const articles = useProductsList();
 
   return (
     <>
@@ -37,7 +37,7 @@ const HomePage = () => {
           ? 'Cargando...'
           : articles.isError
           ? <ShowError error={ articles.isError } />
-          : <ArticleList articles={ articles.articles } />
+          : <ProductsList articles={ articles.articles } />
       }
     </>
   );

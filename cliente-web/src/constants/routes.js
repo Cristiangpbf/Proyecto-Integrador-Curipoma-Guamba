@@ -11,7 +11,7 @@ const publicRoutes = {
   ORDER: '/orden',
   ORDERS: '/ordenes',
   CART: '/carrito',
-  PRODUCT: '/producto',
+  PRODUCT_ID: '/producto',
   PRODUCTS: '/productos',
   USERS: '/usuarios',
   USERS_ID: `/usuario/:id`,

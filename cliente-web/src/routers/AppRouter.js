@@ -25,7 +25,7 @@ const AsyncHome = loadable( () => import( '../pages/Index' ), loadableOptions );
 const AsyncLogin = loadable( () => import( '../pages/Login' ), loadableOptions );
 const AsyncRegister = loadable( () => import( '../pages/Register' ), loadableOptions );
 // const AsyncPrivate = loadable( () => import( '../pages/Private' ), loadableOptions );
-// const AsyncArticles = loadable( () => import( '../pages/Articles' ), loadableOptions );
+// const AsyncArticles = loadable( () => import( '../pages/Products' ), loadableOptions );
 // const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
 const AsyncEmployee = loadable( () => import( '../pages/Employee' ), loadableOptions );
 const AsyncEmployees = loadable( () => import( '../pages/Employees' ), loadableOptions );
@@ -62,7 +62,7 @@ const AppRouter = () => (
     <PublicRoute path={ Routes.EMPLOYEES } component={ AsyncEmployees } />
     <PublicRoute path={ Routes.ORDER } component={ AsyncOrder } />
     <PublicRoute path={ Routes.ORDERS } component={ AsyncOrders } />
-    <PublicRoute path={ Routes.PRODUCT } component={ AsyncProduct } />
+    <PublicRoute path={ Routes.PRODUCT_ID } component={ AsyncProduct } />
     <PublicRoute path={ Routes.PRODUCTS } component={ AsyncProducts } />
     <PublicRoute path={ Routes.CART } component={ AsyncCart } />
     <PublicRoute path={ Routes.CONTACT } component={ AsyncContact } />

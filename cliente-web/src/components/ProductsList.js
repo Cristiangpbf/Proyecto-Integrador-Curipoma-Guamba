@@ -2,20 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Skeleton, Card, Col, Row, Radio, Typography, Button } from 'antd';
 import Routes from '../constants/routes';
 import { Link } from 'react-router-dom';
-import { useArticleList } from '../data/useArticleList';
+import { useProductsList } from '../data/useProductsList';
 import ShowError from './ShowError';
 
 const { Text } = Typography;
 
-const ArticleList = ( props ) => {
+const ProductsList = (props ) => {
 
-    const { articles, isLoading, isError, mutate } = useArticleList();
-    // const [ articles, setArticles ] = useState( props.articles );
-
-    // useEffect( () => {
-    //   console.log( 'props.articles', props.articles );
-    //   setArticles( props.articles );
-    // }, [ props.articles ] );
+    const { products, isLoading, isError, mutate } = useProductsList();
 
     const handleChangeCategory = ( e ) => {
       // setArticles( props.articles.filter( ( article ) => e.target.value === 'all' || article.category_data.id ===
@@ -43,37 +37,20 @@ const ArticleList = ( props ) => {
 
     return (
       <>
-        {
-          props.categories &&
-          <Row justify='center'>
-            <Col>
-              <Radio.Group defaultValue='all' buttonStyle='solid' onChange={ handleChangeCategory }>
-                <Radio.Button value='all'>Todas</Radio.Button> )
-                {
-                  props.categories.map( ( category, index ) =>
-                    <Radio.Button value={ category.id } key={ index }>{ category.name }</Radio.Button> )
-                }
-              </Radio.Group>
-            </Col>
-          </Row>
-        }
         <Row justify='center' gutter={ 30 }>
           {
-            articles.map( ( article, i ) => (
+            products.map( ( product, i ) => (
               <Col xs={ 24 } sm={ 12 } md={ 8 } style={ { marginBottom: 30 } } key={ i }>
-                { article.title
+                { product.name
                   ? <Card
-                    title={ article.title }
-                    extra={ <Link to={ Routes.ARTICLE_ID.replace( ':id', article.id ) }>Más</Link> }
+                    title={ product.name }
+                    extra={ <Link to={ Routes.PRODUCT_ID.replace( ':id', product.id ) }>Más</Link> }
                     cover={
-                      <img alt={ article.title }
-                           src={ `http://localhost:8000/storage/${ article.image }` } /> }
+                      <img alt={ `${product.name}_IMAGE` }
+                           src={ `${ product.img_url }` } /> }
                   >
-                    <Text type='secondary'>{ article.created_at }</Text>
-                    <p> { article.body }</p>
-                    <Text type='secondary'>Escrito por: <Button type='link'>
-                      { article.user_data.name }
-                    </Button></Text>
+                    <Text type='secondary'>{ product.created_at }</Text>
+                    <p> { product.body }</p>
                   </Card>
                   : <div style={ { textAlign: 'center' } }>
                     <Skeleton.Image style={ { width: 200 } } />
@@ -81,6 +58,8 @@ const ArticleList = ( props ) => {
                   </div>
                 }
               </Col>
+
+
             ) )
           }
         </Row>
@@ -89,4 +68,4 @@ const ArticleList = ( props ) => {
   }
 ;
 
-export default ArticleList;
+export default ProductsList;
