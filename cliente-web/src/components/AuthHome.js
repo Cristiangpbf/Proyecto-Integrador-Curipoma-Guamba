@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from "antd/es/typography/Title";
-import {Button, Col, Row} from "antd";
+import { Col, Row} from "antd";
 
 import userCli from '../images/ClientHome/user.png';
 import clockCli from '../images/ClientHome/clock.png';

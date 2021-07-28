@@ -90,10 +90,6 @@ const Login = () => {
                 />
               </Form.Item>
 
-              <Form.Item name='remember' valuePropName='checked' noStyle>
-                <Checkbox>Recordarme</Checkbox>
-              </Form.Item>
-
               <Form.Item>
                 <Link className='login-form-forgot' to=''>
                   ¡Olvidé mi clave!

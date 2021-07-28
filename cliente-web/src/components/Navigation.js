@@ -9,6 +9,7 @@ import { Menu } from 'antd';
 import { LogoutOutlined, LoginOutlined, LoadingOutlined, UserOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/navigation.css';
+import AuthSubmenu from "./AuthSubMenu";
 
 const linkStyle = {};
 
@@ -46,20 +47,16 @@ const Navigation = ( props ) => {
         theme='dark'
         selectedKeys={ [ menuState.current ] }
         style={ {
-          lineHeight: '64px',
-          width: 'fit-content'
+          alignItems:'end',
+          lineHeight: '64px'
         } }
       >
         <Menu.Item key={ Routes.HOME }>
-          <Link to={ Routes.HOME } style={ linkStyle }>Home</Link>
+          <Link to={ Routes.HOME } style={ linkStyle }>Inicio</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.PRODUCTS }>
           <Link to={ Routes.PRODUCTS } style={ linkStyle }>Productos</Link>
-        </Menu.Item>
-
-        <Menu.Item key={ Routes.PRIVATE }>
-          <Link to={ Routes.PRIVATE } style={ linkStyle }>Privada(PRUEBA)</Link>
         </Menu.Item>
 
         <Menu.Item key={ Routes.CONTACT }>
@@ -72,26 +69,7 @@ const Navigation = ( props ) => {
 
         {
           isAuthenticated
-            ? <Menu.SubMenu icon={ <UserOutlined /> } title={ currentUser && currentUser.name }>
-              <Menu.ItemGroup title='Item 1'>
-                <Menu.Item key='setting:1'>Option 1</Menu.Item>
-                <Menu.Item key='setting:2'>Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup title='Item 2'>
-                <Menu.Item key='setting:3'>Option 3</Menu.Item>
-                <Menu.Item key='setting:4'>Option 4</Menu.Item>
-              </Menu.ItemGroup>
-
-              <Menu.Item key={ Routes.LOGIN }>
-                <Link to={ Routes.LOGOUT } className='logout-link'>
-                  {
-                    isCheckingAuth
-                      ? <LoadingOutlined />
-                      : <><LogoutOutlined /> Salir</>
-                  }
-                </Link>
-              </Menu.Item>
-            </Menu.SubMenu>
+            ? <AuthSubmenu user_type={currentUser.type}/>
             : <Menu.Item key={ Routes.LOGIN }>
               <Link to={ Routes.LOGIN }>
                 {
