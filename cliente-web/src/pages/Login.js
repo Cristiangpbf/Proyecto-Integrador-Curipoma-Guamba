@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from '../constants/routes';
 import { useAuth } from '../providers/Auth';
-import {Checkbox, Col, Form, Input, Row, Button, message, Image} from 'antd';
+import {Checkbox, Col, Form, Input, Row, Button, message} from 'antd';
 import { LockOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons/lib';
 import API from '../data';
 import withoutAuth from '../hocs/withoutAuth';

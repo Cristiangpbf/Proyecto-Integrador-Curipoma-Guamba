@@ -32,6 +32,8 @@ const AsyncEmployees = loadable( () => import( '../pages/Employees' ), loadableO
 const AsyncProduct = loadable( () => import( '../pages/Product' ), loadableOptions );
 const AsyncProducts = loadable( () => import( '../pages/Products' ), loadableOptions );
 const AsyncCart = loadable( () => import( '../pages/Cart' ), loadableOptions );
+
+const AsyncNewProduct = loadable( () => import( '../pages/NewProduct' ), loadableOptions );
 const AsyncOrder = loadable( () => import( '../pages/Order' ), loadableOptions );
 const AsyncOrders = loadable( () => import( '../pages/Orders' ), loadableOptions );
 const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions );
@@ -66,6 +68,7 @@ const AppRouter = () => (
     <PublicRoute path={ Routes.PRODUCTS } component={ AsyncProducts } />
     <PublicRoute path={ Routes.CART } component={ AsyncCart } />
     <PublicRoute path={ Routes.CONTACT } component={ AsyncContact } />
+    <PublicRoute path={ Routes.NEW_PRODUCT } component={ AsyncNewProduct } />
     {/*<PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />*/}
     {/*<PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />*/}
     <PrivateRoute path={ Routes.LOGOUT } component={ AsyncLogout } />

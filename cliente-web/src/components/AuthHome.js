@@ -1,0 +1,143 @@
+import React from 'react';
+import Title from "antd/es/typography/Title";
+import {Button, Col, Row} from "antd";
+
+import userCli from '../images/ClientHome/user.png';
+import clockCli from '../images/ClientHome/clock.png';
+import cartCli from '../images/ClientHome/shopping-cart-empty-side-view.png';
+import teamCli from '../images/ClientHome/team.png';
+import team2Cli from '../images/ClientHome/team2.png';
+import productCli from '../images/ClientHome/product.png';
+import prodCli from '../images/ClientHome/prod.png';
+
+import {useAuth} from "../providers/Auth";
+import {Link} from "react-router-dom";
+import Routes from "../constants/routes";
+
+const AuthHome = ({ user_type } ) => {
+    const {  currentUser } = useAuth();
+    console.log( 'Tipo de usuario', user_type );
+    if(user_type==='admin'){
+        return (
+            <>
+                <Title level={2} className='page-title' > Saludos {currentUser && currentUser.name} (ADMIN)</Title>
+
+                <Row justify='center' gutter={ 30 }>
+
+                    <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
+                        <Link to={ Routes.HOME }>
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'userCli-img'} width={150} style={{margin: 20}} src={cartCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> PEDIDOS </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+
+                    <Col xs={ 24 } sm={ 12 } md={ 8 } style={ { marginBottom: 30 } } >
+                        <Link to={ Routes.HOME } >
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'teamCli-img'} width={150} style={{margin: 20}} src={teamCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> CLIENTES </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+                    <Col xs={ 24 } sm={ 12 } md={ 8 } style={ { marginBottom: 30 } } >
+                        <Link to={ Routes.HOME } >
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'cartCli-img'} width={150} style={{margin: 20}} src={team2Cli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> EMPLEADOS </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+
+                    <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
+                        <Link to={ Routes.HOME }>
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'userCli-img'} width={150} style={{margin: 20}} src={productCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> PRODUCTOS </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+
+                    <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
+                        <Link to={ Routes.HOME }>
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'prodCli-img'} width={150} style={{margin: 20}} src={prodCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> PRODUCCIÓN </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+                </Row>
+            </>
+        );
+    }else{
+        return (
+            <>
+                <Title level={2} className='page-title' > Saludos {currentUser && currentUser.name} </Title>
+
+                <Row justify='center' gutter={ 30 }>
+
+                    <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
+                        <Link to={ Routes.HOME }>
+                                <Row justify={"center"}>
+                                    <div style={{textAlign: 'center'}}>
+                                        <img alt={'userCli-img'} width={150} style={{margin: 20}} src={userCli}/>
+                                    </div>
+                                </Row>
+                                <Row justify={"center"}>
+                                    <Title level={2}> EDITAR PERFIL </Title>
+                                </Row>
+                        </Link>
+                    </Col>
+
+                    <Col xs={ 24 } sm={ 12 } md={ 8 } style={ { marginBottom: 30 } } >
+                        <Link to={ Routes.HOME } >
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'clockCli-img'} width={150} style={{margin: 20}} src={clockCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> LISTA DE PEDIDOS </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+                    <Col xs={ 24 } sm={ 12 } md={ 8 } style={ { marginBottom: 30 } } >
+                        <Link to={ Routes.HOME } >
+                            <Row justify={"center"}>
+                                <div style={{textAlign: 'center'}}>
+                                    <img alt={'cartCli-img'} width={150} style={{margin: 20}} src={cartCli}/>
+                                </div>
+                            </Row>
+                            <Row justify={"center"}>
+                                <Title level={2}> SOLICITAR PRODUCTOS </Title>
+                            </Row>
+                        </Link>
+                    </Col>
+                </Row>
+            </>
+        );
+    }
+};
+
+export default AuthHome;

@@ -3,14 +3,8 @@ import Routes from '../constants/routes';
 import API from '../data/index';
 import {Button, Col, Form, Input, message, Row, Select, Typography} from 'antd';
 import {
-    LockOutlined,
-    UserOutlined,
-    MailOutlined,
-    EditOutlined,
-    FileTextOutlined,
-    TeamOutlined,
-    IdcardOutlined,
-    PhoneOutlined, HomeOutlined
+    LockOutlined, UserOutlined, MailOutlined,
+    TeamOutlined, IdcardOutlined, PhoneOutlined, HomeOutlined
 } from '@ant-design/icons';
 import ErrorList from '../components/ErrorList';
 import { translateMessage } from '../utils/translateMessage';

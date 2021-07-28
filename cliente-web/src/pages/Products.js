@@ -8,6 +8,8 @@ import { useAuth } from '../providers/Auth';
 import { useCategories } from '../data/useCategories';
 import ShowError from '../components/ShowError';
 import { mutate } from 'swr';
+import {Link} from "react-router-dom";
+import Routes from "../constants/routes";
 
 /**
  * Fetch Products from DB
@@ -15,7 +17,7 @@ import { mutate } from 'swr';
 export const fetchArticles = async() => {
   // console.log( `Show data fetched. Products: ${ JSON.stringify( articles ) }` );
 
-  return await API.get( '/articles' );
+  return await API.get( '/products' );
 };
 
 /**
@@ -26,11 +28,14 @@ export const fetchArticles = async() => {
 const Products = (props ) => {
 
   const [ visible, setVisible ] = useState( false );
-  const categories = useCategories();
+  // const categories = useCategories();
 
   const auth = useAuth();
 
-  console.log( 'categories', categories );
+  // const { auth, currentUser } = useAuth();
+
+
+  // console.log( 'categories', categories );
 
   /**
    * Executed after the form is submitted
@@ -59,40 +64,42 @@ const Products = (props ) => {
   return (
     <div>
       {
-        auth.isAuthenticated &&
-        <Button
-          type='primary'
-          onClick={ () => {
-            setVisible( true );
-          } }
-        >
-          Nuevo Producto
-        </Button>
+        auth.isAuthenticated && auth.currentUser.type==='admin' &&
+        <Link to={ Routes.NEW_PRODUCT } >
+          <Button style={ {margin: 20}}
+                  type='primary'
+                  onClick={ () => {
+                    setVisible( true );
+                  } }
+          >
+            Nuevo Producto
+          </Button>
+        </Link>
       }
 
-      {
-        categories.isLoading
-          ? <Row type='flex' justify='center'>
-            <Col>
-              <Skeleton.Button active />
-              <Skeleton.Button active />
-              <Skeleton.Button active />
-            </Col>
-          </Row>
-          : categories.isError
-          ? <ShowError error={ categories.isError } />
-          : <ArticleForm
-            categories={ categories.categories }
-            visible={ visible }
-            update={ false }
-            onSubmit={ afterCreate }
-            onCancel={ () => {
-              setVisible( false );
-            } }
-          />
-      }
+      {/*{*/}
+      {/*  categories.isLoading*/}
+      {/*    ? <Row type='flex' justify='center'>*/}
+      {/*      <Col>*/}
+      {/*        <Skeleton.Button active />*/}
+      {/*        <Skeleton.Button active />*/}
+      {/*        <Skeleton.Button active />*/}
+      {/*      </Col>*/}
+      {/*    </Row>*/}
+      {/*    : categories.isError*/}
+      {/*    ? <ShowError error={ categories.isError } />*/}
+      {/*    : <ArticleForm*/}
+      {/*      categories={ categories.categories }*/}
+      {/*      visible={ visible }*/}
+      {/*      update={ false }*/}
+      {/*      onSubmit={ afterCreate }*/}
+      {/*      onCancel={ () => {*/}
+      {/*        setVisible( false );*/}
+      {/*      } }*/}
+      {/*    />*/}
+      {/*}*/}
 
-      <ProductsList categories={ categories.categories } />
+      <ProductsList /*categories={ categories.categories }*/ />
     </div>
   );
 };
