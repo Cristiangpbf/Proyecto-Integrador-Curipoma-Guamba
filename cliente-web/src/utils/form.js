@@ -1,5 +1,5 @@
 /**
- * Created by chalosalvador on 2019-01-19
+ * Created by cristiang on 2019-01-19
  */
 
 export const hasErrors = ( fieldsError ) => {

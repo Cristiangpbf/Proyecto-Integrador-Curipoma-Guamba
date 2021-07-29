@@ -1,5 +1,5 @@
 /**
- * Created by chalosalvador on 3/1/20
+ * Created by cristiang on 3/1/20
  */
 import Cookies from 'js-cookie';
 import Routes from '../constants/routes';

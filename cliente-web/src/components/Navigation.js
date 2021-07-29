@@ -1,5 +1,5 @@
 /**
- * Created by chalosalvador on 2/7/20
+ * Created by cristiang on 2/7/20
  */
 import React, { useState } from 'react';
 
@@ -47,7 +47,6 @@ const Navigation = ( props ) => {
         theme='dark'
         selectedKeys={ [ menuState.current ] }
         style={ {
-          alignItems:'end',
           lineHeight: '64px'
         } }
       >

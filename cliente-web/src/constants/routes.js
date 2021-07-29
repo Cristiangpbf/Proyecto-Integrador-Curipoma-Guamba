@@ -1,5 +1,5 @@
 /**
- * Created by chalosalvador on 17/01/2019.
+ * Created by cristiang on 17/01/2019.
  */
 
 const publicRoutes = {

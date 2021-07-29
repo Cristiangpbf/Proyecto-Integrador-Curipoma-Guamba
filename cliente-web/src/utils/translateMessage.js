@@ -1,5 +1,5 @@
 /**
- * Created by chalosalvador on 17/01/19.
+ * Created by cristiang on 17/01/19.
  */
 
 export const translateMessage = ( type, params = {} ) => {
