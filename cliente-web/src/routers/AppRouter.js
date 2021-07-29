@@ -24,12 +24,11 @@ const loadableOptions = { fallback: <Loading /> };
 const AsyncHome = loadable( () => import( '../pages/Index' ), loadableOptions );
 const AsyncLogin = loadable( () => import( '../pages/Login' ), loadableOptions );
 const AsyncRegister = loadable( () => import( '../pages/Register' ), loadableOptions );
-const AsyncPrivate = loadable( () => import( '../pages/Private' ), loadableOptions );
 // const AsyncArticles = loadable( () => import( '../pages/Products' ), loadableOptions );
 // const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
 const AsyncEmployee = loadable( () => import( '../pages/Employee' ), loadableOptions );
 const AsyncEmployees = loadable( () => import( '../pages/Employees' ), loadableOptions );
-const AsyncProduct = loadable( () => import( '../pages/Product' ), loadableOptions );
+const AsyncProduct = loadable( () => import( '../pages/ProductDetail' ), loadableOptions );
 const AsyncProducts = loadable( () => import( '../pages/Products' ), loadableOptions );
 const AsyncCart = loadable( () => import( '../pages/Cart' ), loadableOptions );
 
@@ -40,6 +39,9 @@ const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions )
 const AsyncContact = loadable( () => import( '../pages/Contact' ), loadableOptions );
 
 const AsyncLogout = loadable( () => import( '../pages/Logout' ), loadableOptions );
+
+const AsynCliEditPerfil = loadable( () => import( '../pages/CliEditPerfil' ), loadableOptions );
+const AsynCliOrdersList = loadable( () => import( '../pages/CliOrdersList' ), loadableOptions );
 
 
 /**
@@ -72,6 +74,9 @@ const AppRouter = () => (
     {/*<PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />*/}
     {/*<PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />*/}
     <PrivateRoute path={ Routes.LOGOUT } component={ AsyncLogout } />
+
+    <PrivateRoute path={ Routes.CLI_EDIT_PERFIL } component={ AsynCliEditPerfil } />
+    <PrivateRoute path={ Routes.CLI_ORDERS_LIST } component={ AsynCliOrdersList } />
 
     <Route component={ NotFoundPage } />
   </Switch>

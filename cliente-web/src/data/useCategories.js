@@ -1,6 +1,3 @@
-/**
- * Created by cristiang on 8/18/20
- */
 import useSWR from 'swr';
 import API from './index';
 

@@ -5,20 +5,30 @@
 const publicRoutes = {
   LOGIN: '/ingreso',
   REGISTER: '/registro',
-  ARTICLES: '/articulos',//
+  ARTICLES: '/articulos',
   EMPLOYEE: '/empleado',
   EMPLOYEES: '/empleados',
   ORDER: '/orden',
   ORDERS: '/ordenes',
   CART: '/carrito',
-  PRODUCT_ID: '/producto',
+  PRODUCT_ID: '/producto/:id',
   PRODUCTS: '/productos',
   USERS: '/usuarios',
   USERS_ID: `/usuario/:id`,
   HOME: '/',
   ABOUT: '/acerca-de',
   ANTD: '/antd',
-  CONTACT: '/contacto'
+  CONTACT: '/contacto',
+
+  ADMIN_PEDIDOS: '/admin_pedidos',
+  ADMIN_CLIENTES: '/admin_clientes',
+  ADMIN_EMPLEADOS: '/admin_empleados',
+  ADMIN_PRODUCTOS: '/admin_productos',
+  ADMIN_PRODUCCION: '/admin_produccion',
+
+  CLI_EDIT_PERFIL: '/cli_perfil',
+  CLI_ORDERS_LIST: '/cli_lista_pedidos',
+  CLI_NUEVO_PEDIDO: '/cli_productos'
 };
 
 const privateRoutes = {

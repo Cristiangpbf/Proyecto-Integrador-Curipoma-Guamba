@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Skeleton, Card, Col, Row, Radio, Typography, Button } from 'antd';
 import Routes from '../constants/routes';
+import {ShoppingCartOutlined} from "@ant-design/icons";
 import { Link } from 'react-router-dom';
 import { useProductsList } from '../data/useProductsList';
 import ShowError from './ShowError';
+import {useAuth} from "../providers/Auth";
 
 const { Text } = Typography;
 
 const ProductsList = (props ) => {
+
+    const auth = useAuth();
 
     const { products, isLoading, isError, mutate } = useProductsList();
 
@@ -49,8 +53,9 @@ const ProductsList = (props ) => {
                       <img alt={ `${product.name}_IMAGE` }
                            src={ `${ product.img_url }` } /> }
                   >
-                    <Text type='secondary'>{ product.created_at }</Text>
-                    <p> { product.body }</p>
+                        {auth.isAuthenticated?<Button><ShoppingCartOutlined />Añadir al carrito</Button>:<></>}
+
+                    <p> { product.description }</p>
                   </Card>
                   : <div style={ { textAlign: 'center' } }>
                     <Skeleton.Image style={ { width: 200 } } />

@@ -11,7 +11,7 @@ import {useAuth} from "../providers/Auth";
 import AuthHome from "../components/AuthHome";
 
 const HomePage = () => {
-  const articles = useProductsList();
+  const products = useProductsList();
   const auth = useAuth();
 
     return (
@@ -43,11 +43,11 @@ const HomePage = () => {
                         </Col>
                     </Row>
                     {
-                        articles.isLoading
+                        products.isLoading
                             ? 'Cargando...'
-                            : articles.isError
-                            ? <ShowError error={ articles.isError } />
-                            : <ProductsList articles={ articles.articles } />
+                            : products.isError
+                            ? <ShowError error={ products.isError } />
+                            : <ProductsList products={ products.products } />
                     }
                 </div>
         }
