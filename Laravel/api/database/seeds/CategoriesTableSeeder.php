@@ -17,11 +17,11 @@ class CategoriesTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         //Crear datos ficticios en la tabla
-        for($i = 0; $i < 20; $i++){
+        for($i = 0; $i < 4; $i++){
             $aux = $i+1;
             Category::create([
                 'name'=>"Categoria {$aux}",
-                'description'=>$faker->paragraph(2 )
+                'description'=>$faker->paragraph(1)
             ]);
         }
     }

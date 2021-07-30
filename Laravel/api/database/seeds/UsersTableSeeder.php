@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         // Generar algunos usuarios para la aplicacion
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             User::create([
                 'name' => $faker->name,
                 'business_name'=>$faker->name,

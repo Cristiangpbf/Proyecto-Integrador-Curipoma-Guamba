@@ -14,11 +14,14 @@ class CreateProductionsTable extends Migration
     public function up()
     {
         Schema::create('productions', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('total_sales');
             $table->double('liters');
             $table->string('time');
             $table->string('performance');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('restrict');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('restrict');
             $table->timestamps();
         });
     }

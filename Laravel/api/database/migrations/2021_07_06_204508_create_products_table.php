@@ -23,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('img_url');
             $table->text('description');
             $table->integer('package_amount');/*Unidades que hay en el paquete*/
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -1,7 +1,9 @@
 <?php
 
 use App\Order;
+use App\Product;
 use Illuminate\Database\Seeder;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class OrdersTableSeeder extends Seeder
 {
@@ -16,13 +18,22 @@ class OrdersTableSeeder extends Seeder
         Order::Truncate();
         $faker = \Faker\Factory::create();
 
-        //Crear datos ficticios en la tabla
-        for($i = 0; $i < 20; $i++){
-            Order::create([
-                'comment'=>$faker->paragraph(1),
-                'state'=>'entregado',
-                'delivery_date'=>$faker->dateTime
-            ]);
+        //Todos los usuarios
+        $users = App\User::all();
+        foreach ($users as $user) {
+            JWTAuth::attempt(['email' => $user->email, 'password' => '123123']);
+
+            $num_orders = 1;
+            //Crear datos ficticios en la tabla
+            if ($user->type == 'client') {
+                for ($i = 0; $i < $num_orders; $i++) {
+                    $order = Order::create([
+                        'comment' => $faker->paragraph(2),
+                        'state' => 'en espera',
+                        'delivery_date' => $faker->dateTime
+                    ]);
+                }
+            }
         }
     }
 }

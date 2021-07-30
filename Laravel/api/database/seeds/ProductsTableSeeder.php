@@ -13,7 +13,7 @@ class ProductsTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         //Crear datos ficticios en la tabla
-        for($i = 0; $i < 20; $i++){
+        for($i = 0; $i < 15; $i++){
             $aux = $i+1;
             Product::create([
                 'name'=>"producto{$aux}",
@@ -23,7 +23,8 @@ class ProductsTableSeeder extends Seeder
                 'consumption_time'=>$faker->sentence,
                 'img_url'=>$faker->imageUrl(),
                 'description'=>$faker->paragraph,
-                'package_amount'=>$faker->numberBetween(30, 150)
+                'package_amount'=>$faker->numberBetween(30, 150),
+                'category_id'=>$faker->numberBetween(1,5),
             ]);
         }
     }
