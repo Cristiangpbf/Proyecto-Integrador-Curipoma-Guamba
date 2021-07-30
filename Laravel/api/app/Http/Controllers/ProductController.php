@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,11 @@ class ProductController extends Controller
     public function index(){
         return Product::all();
     }
+
+    public function indexFiltered(Category $category){
+        return response()->json($category->products, 200);
+    }
+
     public function show(Product $product){
         return $product;
     }
