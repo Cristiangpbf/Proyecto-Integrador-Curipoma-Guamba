@@ -17,7 +17,7 @@ class CategoriesTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         //Crear datos ficticios en la tabla
-        for($i = 0; $i < 4; $i++){
+        for($i = 0; $i < 5; $i++){
             $aux = $i+1;
             Category::create([
                 'name'=>"Categoria {$aux}",
