@@ -17,12 +17,12 @@ class EmployeesTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         //Crear datos ficticios en la tabla
-        for($i = 0; $i < 20; $i++){
+        for($i = 0; $i < 5; $i++){
             Employee::create([
                 'name' => $faker->name,
                 'email'=> $faker-> email,
                 'phone' => $faker->phoneNumber,
-                'dni' => '1750024067'
+                'dni' => $faker->creditCardNumber,
             ]);
         }
     }

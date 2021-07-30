@@ -2,6 +2,7 @@
 
 use App\Notification;
 use Illuminate\Database\Seeder;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class NotificationsTableSeeder extends Seeder
 {
@@ -16,10 +17,12 @@ class NotificationsTableSeeder extends Seeder
         Notification::Truncate();
         $faker = \Faker\Factory::create();
 
-        //Crear datos ficticios en la tabla
-        for($i = 0; $i < 20; $i++){
+        //Todas las ordenes
+        $orders = \App\Order::all();
+        foreach ($orders as $order){
             Notification::create([
-                'message'=>$faker->paragraph(1)
+                'message'=>$faker->text,
+                'order_id'=>$order->id,
             ]);
         }
     }
