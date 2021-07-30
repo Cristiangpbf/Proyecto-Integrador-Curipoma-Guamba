@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Resources\CategoryCollection;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index(){
-        return Category::all();
+        return new CategoryCollection(Category::all());
     }
     public function show(Category $category){
         return $category;
