@@ -33,6 +33,9 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products', 'ProductController@index');
     Route::get('products/{product}', 'ProductController@show');
 
+//Visualizacion Categorías
+    Route::get('categories', 'CategoryController@index');
+
 //Rutas privadas
     Route::group(['middleware' => ['jwt.verify']], function () {
 
@@ -57,7 +60,7 @@ Route::group(['middleware'=>['cors']], function (){
         Route::delete('carts/{cart}', 'CartController@delete');
 
         //Rutas Category
-        Route::get('categories', 'CategoryController@index');
+
         Route::get('categories/{category}', 'CategoryController@show');
         Route::post('categories', 'CategoryController@store');
         Route::put('categories/{category}', 'CategoryController@update');
