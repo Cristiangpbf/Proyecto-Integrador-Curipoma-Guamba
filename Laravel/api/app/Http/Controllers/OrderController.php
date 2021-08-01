@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Http\Resources\Order as OrderResource;
+use App\Http\Resources\OrderCollection;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function index(){
-        return Order::all();
+        return new OrderCollection(Order::paginate());
     }
     public function show(Order $order){
-        return $order;
+        return response()->json(new OrderResource($order), 200);
     }
     public function store(Request $request){
         $order = Order::create($request->all());

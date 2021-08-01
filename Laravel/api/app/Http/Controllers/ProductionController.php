@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Production;
+use App\Http\Resources\Production as ProductionResource;
+use App\Http\Resources\ProductionCollection;
 use Illuminate\Http\Request;
 
 class ProductionController extends Controller
 {
     public function index(){
-        return Production::all();
+        return new ProductionCollection(Production::paginate());
     }
     public function show(Production $production){
-        return $production;
+        return response()->json(new ProductionResource($production), 200);
     }
     public function store(Request $request){
         $production = Production::create($request->all());

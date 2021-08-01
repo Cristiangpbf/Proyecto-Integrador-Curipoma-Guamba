@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use Illuminate\Http\Request;
+use App\Http\Resources\Cart as CartResource;
+use App\Http\Resources\CartCollection;
 
 class CartController extends Controller
 {
     public function index(){
-        return Cart::all();
+        return new CartCollection(Cart::paginate());
     }
     public function show(Cart $cart){
-        return $cart;
+        return response()->json(new CartResource($cart), 200);
     }
     public function store(Request $request){
         $cart = Cart::create($request->all());

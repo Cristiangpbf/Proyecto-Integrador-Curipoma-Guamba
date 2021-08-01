@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Notification;
+use App\Http\Resources\Notification as NotificationResource;
+use App\Http\Resources\NotificationCollection;
 use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
     public function index(){
-        return Notification::all();
+        return new NotificationCollection(Notification::paginate());
     }
     public function show(Notification $notification){
-        return $notification;
+        return response()->json(new NotificationResource($notification), 200);
     }
     public function store(Request $request){
         $notification = Notification::create($request->all());
