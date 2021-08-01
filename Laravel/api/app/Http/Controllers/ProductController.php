@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Http\Resources\Product as ProductResource;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,8 +17,12 @@ class ProductController extends Controller
         return response()->json($category->products, 200);
     }
 
+    public function productCategory(Product $product){
+        return response()->json($product->category, 200);
+    }
+
     public function show(Product $product){
-        return $product;
+        return new ProductResource($product);
     }
     public function store(Request $request){
         $product = Product::create($request->all());

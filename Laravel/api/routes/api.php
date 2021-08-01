@@ -33,6 +33,7 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products', 'ProductController@index');
     Route::get('products/{product}', 'ProductController@show');
     Route::get('products/category/{category}', 'ProductController@indexFiltered');
+    Route::get('product/{product}/category/', 'ProductController@productCategory');
 
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
