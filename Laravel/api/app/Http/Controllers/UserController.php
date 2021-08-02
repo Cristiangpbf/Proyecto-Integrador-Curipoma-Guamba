@@ -67,7 +67,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return response()->json(new UserResource($user), 200);
+        return $user;
     }
 
     public function getAuthenticatedUser() //Usuario autenticado
@@ -83,7 +83,7 @@ class UserController extends Controller
         } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
             return response()->json(['message'=>'token_absent'], $e->getStatusCode());
         }
-        return response()->json(new UserResource($user), 200);
+        return response()->json(compact('user'));
 
     }
 
