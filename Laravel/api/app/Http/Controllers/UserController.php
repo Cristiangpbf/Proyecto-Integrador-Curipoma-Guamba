@@ -59,6 +59,11 @@ class UserController extends Controller
         return response()->json(compact('user', 'token'), 201);
     }
 
+    public function update(Request $request, User $user){
+        $user->update($request->all());
+        return response()->json($user, 200);
+    }
+
     //Visualizar usuarios para el admi
     public function index()
     {

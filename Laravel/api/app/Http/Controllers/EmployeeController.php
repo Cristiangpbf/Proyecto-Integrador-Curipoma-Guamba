@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     ];
 
     public function index(){
-        return new EmployeeCollection(Employee::paginate());
+        return new EmployeeCollection(Employee::all());
     }
     public function show(Employee $employee){
         return response()->json(new EmployeeResource($employee), 200);

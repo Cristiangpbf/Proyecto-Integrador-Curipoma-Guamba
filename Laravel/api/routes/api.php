@@ -47,6 +47,7 @@ Route::group(['middleware'=>['cors']], function (){
         Route::get('users', 'UserController@index'); //Todos los usuarios
         Route::get('users/{user}', 'UserController@show');
         Route::post('logout', 'UserController@logout');
+        Route::put('user/{user}', 'UserController@update');
 
         //Rutas Employee
         Route::get('employees', 'EmployeeController@index');
