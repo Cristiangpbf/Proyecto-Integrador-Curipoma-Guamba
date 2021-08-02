@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Http\Resources\User as UserResource;
+use App\Http\Resources\UserCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -34,14 +36,14 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-//        $validator = Validator::make($request->all(), [
-//            'name' => 'required|string|max:255',
-//            'email' => 'required|string|email|max:255|unique:users',
-//            'password' => 'required|string|min:6|confirmed',
-//        ]);
-//        if ($validator->fails()) {
-//            return response()->json($validator->errors()->toJson(), 400);
-//        }
+/*        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }*/
         $user = User::create([
             'name' => $request->get('name'),
             'business_name' => $request->get('business_name'),
@@ -60,12 +62,12 @@ class UserController extends Controller
     //Visualizar usuarios para el admi
     public function index()
     {
-        return User::all();
+        return new UserCollection(User::paginate());
     }
 
     public function show(User $user)
     {
-        return $user;
+        return response()->json(new UserResource($user), 200);
     }
 
     public function getAuthenticatedUser() //Usuario autenticado
@@ -81,8 +83,7 @@ class UserController extends Controller
         } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
             return response()->json(['message'=>'token_absent'], $e->getStatusCode());
         }
-        return response()->json(compact('user'));
-
+        return response()->json(new UserResource($user), 200);
 
     }
 

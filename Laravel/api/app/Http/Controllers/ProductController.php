@@ -10,6 +10,23 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    private static $rules =[
+        'name'=>'required|string',
+        'dimensions'=>'required|string',
+        'flavor'=>'required|string',
+        'texture'=>'required|string',
+        'consumption_time'=>'required|string',
+        'img_url'=>'required|string',
+        'description'=>'required|string',
+        'package_amount'=>'required|integer',
+        'category_id'=>'required'
+    ];
+
+    private static $messages=[
+        'required'=>'El campo :attribute es obligatorio.',
+        'string'=>'El campo :attribute no tiene el formato correcto.',
+    ];
+
     public function index(){
         return response()->json(new ProductCollection(Product::all()), 200);
     }
@@ -26,6 +43,9 @@ class ProductController extends Controller
         return new ProductResource($product);
     }
     public function store(Request $request){
+
+        $request->validate(self::$rules, self::$messages);
+
         $product = Product::create($request->all());
         return response()->json($product, 201);
     }
