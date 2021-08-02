@@ -11,11 +11,15 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        return new ProductCollection(Product::paginate());
+        return response()->json(new ProductCollection(Product::all()), 200);
     }
 
     public function indexFiltered(Category $category){
         return response()->json($category->products, 200);
+    }
+
+    public function productCategory(Product $product){
+        return response()->json($product->category, 200);
     }
 
     public function show(Product $product){
