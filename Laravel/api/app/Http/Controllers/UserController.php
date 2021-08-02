@@ -36,14 +36,14 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-//        $validator = Validator::make($request->all(), [
-//            'name' => 'required|string|max:255',
-//            'email' => 'required|string|email|max:255|unique:users',
-//            'password' => 'required|string|min:6|confirmed',
-//        ]);
-//        if ($validator->fails()) {
-//            return response()->json($validator->errors()->toJson(), 400);
-//        }
+/*        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }*/
         $user = User::create([
             'name' => $request->get('name'),
             'business_name' => $request->get('business_name'),

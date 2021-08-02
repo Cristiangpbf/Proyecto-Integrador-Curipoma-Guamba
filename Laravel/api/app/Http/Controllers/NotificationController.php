@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+    private static $rules =[
+        'message'=>'required|string',
+        'order_id'=>'required'
+    ];
+
+    private static $messages=[
+        'required'=>'El campo :attribute es obligatorio.',
+        'string'=>'El campo :attribute no tiene el formato correcto.',
+    ];
+
     public function index(){
         return new NotificationCollection(Notification::paginate());
     }
@@ -16,6 +26,9 @@ class NotificationController extends Controller
         return response()->json(new NotificationResource($notification), 200);
     }
     public function store(Request $request){
+
+        $request->validate(self::$rules, self::$messages);
+
         $notification = Notification::create($request->all());
         return response()->json($notification, 201);
     }
