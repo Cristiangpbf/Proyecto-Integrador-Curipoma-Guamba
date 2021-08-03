@@ -28,11 +28,16 @@ const AsyncRegister = loadable( () => import( '../pages/Register' ), loadableOpt
 // const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
 const AsyncEmployee = loadable( () => import( '../pages/Employee' ), loadableOptions );
 const AsyncEmployees = loadable( () => import( '../pages/Employees' ), loadableOptions );
+const AsyncEditEmployee = loadable( () => import( '../pages/EditEmployee' ), loadableOptions );
+const AsyncNewEmployee = loadable( () => import( '../pages/NewEmployee' ), loadableOptions );
+
 const AsyncProduct = loadable( () => import( '../pages/ProductDetail' ), loadableOptions );
 const AsyncProducts = loadable( () => import( '../pages/Products' ), loadableOptions );
 const AsyncCart = loadable( () => import( '../pages/Cart' ), loadableOptions );
 
 const AsyncNewProduct = loadable( () => import( '../pages/NewProduct' ), loadableOptions );
+const AsyncEditProduct = loadable( () => import( '../pages/ProductEdit' ), loadableOptions );
+
 const AsyncOrder = loadable( () => import( '../pages/Order' ), loadableOptions );
 const AsyncOrders = loadable( () => import( '../pages/Orders' ), loadableOptions );
 const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions );
@@ -64,10 +69,16 @@ const AppRouter = () => (
     <PublicRoute path={ Routes.ABOUT } component={ AsyncAbout } />
     <PublicRoute path={ Routes.EMPLOYEE } component={ AsyncEmployee } />
     <PublicRoute path={ Routes.EMPLOYEES } component={ AsyncEmployees } />
+    <PublicRoute path={ Routes.EDIT_EMPLOYEE_ID } component={ AsyncEditEmployee } />
+    <PublicRoute path={ Routes.NEW_EMPLOYEE } component={ AsyncNewEmployee } />
+
     <PublicRoute path={ Routes.ORDER } component={ AsyncOrder } />
     <PublicRoute path={ Routes.ORDERS } component={ AsyncOrders } />
+
     <PublicRoute path={ Routes.PRODUCT_ID } component={ AsyncProduct } />
     <PublicRoute path={ Routes.PRODUCTS } component={ AsyncProducts } />
+    <PublicRoute path={ Routes.EDIT_PRODUCT_ID } component={ AsyncEditProduct } />
+
     <PublicRoute path={ Routes.CART } component={ AsyncCart } />
     <PublicRoute path={ Routes.CONTACT } component={ AsyncContact } />
     <PublicRoute path={ Routes.NEW_PRODUCT } component={ AsyncNewProduct } />

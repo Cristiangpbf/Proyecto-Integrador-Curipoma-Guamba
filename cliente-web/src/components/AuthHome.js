@@ -60,7 +60,7 @@ const AuthHome = ({user_type}) => {
                         </Link>
                     </Col>
                     <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
-                        <Link to={Routes.HOME}>
+                        <Link to={Routes.EMPLOYEES}>
                             <Card
                                 hoverable
                                 style={{background: "transparent"}}
@@ -78,7 +78,7 @@ const AuthHome = ({user_type}) => {
                     </Col>
 
                     <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
-                        <Link to={Routes.HOME}>
+                        <Link to={Routes.PRODUCTS}>
                             <Card
                                 hoverable
                                 style={{background: "transparent"}}

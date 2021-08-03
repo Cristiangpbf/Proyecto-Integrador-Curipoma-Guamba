@@ -22,9 +22,10 @@ const publicRoutes = {
 
   ADMIN_PEDIDOS: '/admin_pedidos',
   ADMIN_CLIENTES: '/admin_clientes',
-  ADMIN_EMPLEADOS: '/admin_empleados',
   ADMIN_PRODUCTOS: '/admin_productos',
   ADMIN_PRODUCCION: '/admin_produccion',
+  EDIT_EMPLOYEE_ID: '/edit_empleado/:id',
+  NEW_EMPLOYEE: '/new_empleado',
 
   CLI_EDIT_PERFIL: '/cli_perfil',
   CLI_ORDERS_LIST: '/cli_lista_pedidos',
@@ -35,7 +36,8 @@ const privateRoutes = {
   LOGOUT: '/logout',
   PRIVATE: '/privada',
   ARTICLE_ID: '/articulo/:id',
-  NEW_PRODUCT:'/nuevo_producto'
+  NEW_PRODUCT:'/nuevo_producto',
+  EDIT_PRODUCT_ID: '/edit_producto/:id'
 };
 
 const Routes = {

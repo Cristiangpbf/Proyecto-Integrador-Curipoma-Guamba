@@ -16,17 +16,20 @@ const linkStyle = {};
 const Navigation = ( props ) => {
   let location = useLocation();
 
+  const { isAuthenticated, isCheckingAuth, currentUser } = useAuth();
+
   const [ menuState, setMenuState ] = useState( {
     current: location.pathname, // set the current selected item in menu, by default the current page
     collapsed: false,
     openKeys: []
   } );
-  const { isAuthenticated, isCheckingAuth, currentUser } = useAuth();
+
 
   React.useEffect( () => {
     setMenuState( {
       ...menuState,
       current: location.pathname
+
     } );
   }, [ location, isAuthenticated ] );
 

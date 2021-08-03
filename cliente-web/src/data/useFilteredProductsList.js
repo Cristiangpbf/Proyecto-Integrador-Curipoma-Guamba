@@ -1,9 +1,9 @@
 import useSWR from 'swr';
 import API from './index';
 
-export const useProductsList = () => {
+export const useFilteredProductsList = (aux) => {
 
-  const { data, error, mutate } = useSWR( '/products', API.fetcher );
+  const { data, error, mutate } = useSWR( `/products/category/`%{aux}, API.fetcher );
 
   return {
     products: data && data.data,

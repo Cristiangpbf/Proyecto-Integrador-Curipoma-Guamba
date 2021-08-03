@@ -14,8 +14,8 @@ import Routes from "../constants/routes";
 /**
  * Fetch Products from DB
  */
-export const fetchArticles = async() => {
-  // console.log( `Show data fetched. Products: ${ JSON.stringify( articles ) }` );
+export const fetchProducts = async(products) => {
+  console.log( `Show data fetched. Products: ${ JSON.stringify( products ) }` );
 
   return await API.get( '/products' );
 };
@@ -28,14 +28,14 @@ export const fetchArticles = async() => {
 const Products = (props ) => {
 
   const [ visible, setVisible ] = useState( false );
-  // const categories = useCategories();
+  const categories = JSON.stringify( useCategories() );
 
   const auth = useAuth();
 
   // const { auth, currentUser } = useAuth();
 
 
-  // console.log( 'categories', categories );
+
 
   /**
    * Executed after the form is submitted
@@ -88,18 +88,10 @@ const Products = (props ) => {
       {/*    </Row>*/}
       {/*    : categories.isError*/}
       {/*    ? <ShowError error={ categories.isError } />*/}
-      {/*    : <ArticleForm*/}
-      {/*      categories={ categories.categories }*/}
-      {/*      visible={ visible }*/}
-      {/*      update={ false }*/}
-      {/*      onSubmit={ afterCreate }*/}
-      {/*      onCancel={ () => {*/}
-      {/*        setVisible( false );*/}
-      {/*      } }*/}
-      {/*    />*/}
+      {/*    : <>Cargaron las categorías </>*/}
       {/*}*/}
 
-      <ProductsList /*categories={ categories.categories }*/ />
+      <ProductsList />
     </div>
   );
 };

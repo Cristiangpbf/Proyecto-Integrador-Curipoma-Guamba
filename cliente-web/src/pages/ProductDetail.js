@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CommentsList from '../components/CommentsList';
 import { useProduct } from '../data/useProduct';
 import ShowError from '../components/ShowError';
@@ -10,13 +10,22 @@ import Paragraph from "antd/lib/typography/Paragraph";
 import Text from "antd/lib/typography/Text";
 import {useAuth} from "../providers/Auth";
 import Routes from "../constants/routes";
-import {ShoppingCartOutlined} from "@ant-design/icons";
+import {EditOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import API from "../data";
+import {useProductCategory} from "../data/useProductCategory";
 
 const ProductDetail = () => {
 
     const auth = useAuth();
     let { id } = useParams();
     const product = useProduct( id );
+    const [prodCat, setProdCat] = useState();
+    // const prodCategory = useProductCategory(product.category_id);
+
+    const fetchCategory = async(product) => {
+        console.log( `mostrar id de producto: ${product}` );
+        setProdCat( await API.get( `/product/${product}/category/` ));
+    };
 
     return (
         <>
@@ -31,7 +40,16 @@ const ProductDetail = () => {
                                 <Image src={product.product.img_url}/>
                             </Col>
                             <Col span={12}>
-                                <Title style={{textAlign: 'center'}} level={3}>{product.product.name}</Title>
+                                <Title style={{textAlign: 'center'}} level={3}>{product.product.name} ({product.product.category.name} ) {
+                                    !auth.isAuthenticated
+                                        ?<></>
+                                        :auth.currentUser.type ==='admin'
+                                        ?<>
+                                            <Divider type={"vertical"}/>
+                                            <Link to={ Routes.EDIT_PRODUCT_ID.replace( ':id', product.product.id ) }>Editar<EditOutlined /></Link>
+                                        </>
+                                        :<></>
+                                }</Title>
 
                                 <Divider/>
 
@@ -111,13 +129,17 @@ const ProductDetail = () => {
                                     {
                                         !auth.isAuthenticated
                                             ?<Paragraph style={{textAlign: 'center'}}>Inicie sesión <Link to={Routes.LOGIN}>aquí </Link>para poder comprar este producto.</Paragraph>
-                                            :<>
+                                            :auth.currentUser.type==='client'
+                                            ?<>
                                                 <Title style={{textAlign: 'center'}} level={3}>Número de páquetes</Title>
                                                 <Row justify={"center"}>
                                                     <Col style={{textAlign: 'center'}} span={10}><InputNumber  min={1} defaultValue={1}/></Col>
                                                     <Col span={10}><Button type="primary"><ShoppingCartOutlined />Agregar al carrito</Button></Col>
                                                 </Row>
                                             </>
+                                            :<></>
+
+
                                     }
 
                                 </Col>
@@ -133,4 +155,4 @@ const ProductDetail = () => {
 
 };
 
-export default ( ProductDetail );
+export default (ProductDetail);

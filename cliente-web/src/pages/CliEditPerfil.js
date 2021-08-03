@@ -21,7 +21,7 @@ const CliEditPerfil = () => {
         const { name, business_name, ruc , phone , address} = userData;
 
         try {
-            const user = await API.put( '/user', {
+            const user = await API.put( `/user/${currentUser.id}`, {
                 name,
                 business_name,
                 ruc ,
@@ -30,7 +30,8 @@ const CliEditPerfil = () => {
             } );
 
             console.log( 'User put', user );
-            setCurrentUser( user.data ); //Posible conflicto por numero de campos
+            setCurrentUser( user.data );
+            message.success(<>Información editada correctamente</>)
         } catch( e ) {
             console.error( 'No se pudo actualizar el usuario', e );
             const errorList = e.error && <ErrorList errors={ e.error } />;

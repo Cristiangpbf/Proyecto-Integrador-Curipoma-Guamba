@@ -56,10 +56,11 @@ export const AuthProvider = ( { children } ) => {
           // TODO change to useSWR and revalidate
           const currentUserResponse = await API.get( '/user' );
           console.log( 'currentUserResponse', currentUserResponse );
-          setCurrentUser( currentUserResponse && currentUserResponse.data );
+          setCurrentUser( currentUserResponse && currentUserResponse.data.user );
+          console.log( 'currentUser luego de set', currentUser );
           setAuthenticated( true );
         } catch( e ) {
-          console.log( 'e', e );
+          console.log( 'Error en try auth', e );
           setAuthenticated( false );
         }
       }
@@ -67,7 +68,6 @@ export const AuthProvider = ( { children } ) => {
 
       return () => {
         console.log( 'remove storage event' );
-
         window.removeEventListener( 'storage', syncLogout );
         window.localStorage.removeItem( 'login' );
       };
