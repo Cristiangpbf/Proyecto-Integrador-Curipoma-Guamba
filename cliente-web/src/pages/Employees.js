@@ -68,7 +68,7 @@ const CliOrdersList = () => {
                     </Link>
                     <Link>
                         <Popover title="Eliminar este Empleado">
-                            <Button onClick={()=>{console.log(`El id de este elemento es `, record.id)}} ><DeleteOutlined /></Button>
+                            <Button onClick={()=>{console.log(`El id de este elemento es `, record.id)}} ><DeleteOutlined danger style={{color:"red"}}/></Button>
                         </Popover>
 
                     </Link>

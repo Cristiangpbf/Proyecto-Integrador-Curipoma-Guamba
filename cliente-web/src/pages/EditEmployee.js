@@ -3,6 +3,7 @@ import ShowError from '../components/ShowError';
 import withAuth from '../hocs/withAuth';
 import {Link, useParams} from 'react-router-dom';
 import {Button, Col, Divider, Form, Image, Input, InputNumber, message, Row, Select, Skeleton, Typography} from 'antd';
+import {SaveOutlined} from  '@ant-design/icons';
 import Title from "antd/lib/typography/Title";
 import Paragraph from "antd/lib/typography/Paragraph";
 import Text from "antd/lib/typography/Text";
@@ -134,9 +135,9 @@ const ProductEdit = () => {
                                             </Col>
                                         </Row>
 
-                                        <Col span={12}>
+                                        <Col span={24} style={{textAlign: 'center'}}>
                                             <Form.Item>
-                                                <Button type='primary' htmlType='submit' >
+                                                <Button type='primary' htmlType='submit' icon={<SaveOutlined />} >
                                                     Guardar cambios
                                                 </Button>
                                             </Form.Item>
