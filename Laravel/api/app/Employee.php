@@ -13,4 +13,9 @@ class Employee extends Model
     {
         return $this->belongsToMany('App\Product', 'Productions')->withTimestamps()->withPivot('total_sales','liters','time','performance');
     }
+
+    public function productions()
+    {
+        return $this->hasMany('App\Production');
+    }
 }

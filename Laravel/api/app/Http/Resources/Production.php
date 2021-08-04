@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Employee;
+use App\Product;
 
 class Production extends JsonResource
 {
@@ -15,13 +17,13 @@ class Production extends JsonResource
     public function toArray($request)
     {
         return [
-            //'id'=>$this->id,
-            'Total producción'=>$this->total_sales,
-            'Litros'=>$this->liters,
-            'Tiempo'=>$this->time,
-            'Rendimiento'=>$this->performance,
-            'Trabajador'=>"/api/employees/".$this->employee_id,
-            'Producto'=>"/api/products/".$this->product_id,
+//            'id'=>$this->id,
+            'total_sales'=>$this->total_sales,
+            'liters'=>$this->liters,
+            'time'=>$this->time,
+            'performance'=>$this->performance,
+            'employee'=>Employee::find($this->employee_id),
+            'product'=>Product::find($this->product_id),
             'Fecha'=>$this->created_at,
         ];
     }

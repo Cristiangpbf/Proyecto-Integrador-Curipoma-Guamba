@@ -31,6 +31,7 @@ class ProductionController extends Controller
     public function show(Production $production){
         return response()->json(new ProductionResource($production), 200);
     }
+
     public function store(Request $request){
 
         $request->validate(self::$rules, self::$messages);

@@ -6,6 +6,7 @@ use App\Employee;
 use App\Http\Resources\Employee as EmployeeResource;
 use App\Http\Resources\EmployeeCollection;
 use Illuminate\Http\Request;
+use App\Http\Resources\Production as ProductionResource;
 
 class EmployeeController extends Controller
 {
@@ -29,6 +30,11 @@ class EmployeeController extends Controller
     }
     public function show(Employee $employee){
         return response()->json(new EmployeeResource($employee), 200);
+    }
+    public function showEmployeeProd(Employee $employee){
+        $productions = $employee->productions;
+        return ProductionResource::collection($productions);
+//        return response()->json($employee->productions, 200);
     }
     public function store(Request $request){
 
