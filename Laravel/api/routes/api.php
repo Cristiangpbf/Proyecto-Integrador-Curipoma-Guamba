@@ -34,7 +34,6 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products/{product}', 'ProductController@show');
     Route::get('products/category/{category}', 'ProductController@indexFiltered');
     Route::get('product/{product}/category/', 'ProductController@productCategory');
-    Route::get('employee/{employee}/production', 'EmployeeController@showEmployeeProd');
 
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
@@ -53,6 +52,7 @@ Route::group(['middleware'=>['cors']], function (){
         //Rutas Employee
         Route::get('employees', 'EmployeeController@index');
         Route::get('employees/{employee}', 'EmployeeController@show');
+        Route::get('employee/{employee}/production', 'EmployeeController@showEmployeeProd');
 
         Route::post('employees', 'EmployeeController@store');
         Route::put('employees/{employee}', 'EmployeeController@update');

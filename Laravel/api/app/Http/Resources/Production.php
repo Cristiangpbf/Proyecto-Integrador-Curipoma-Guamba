@@ -22,7 +22,7 @@ class Production extends JsonResource
             'liters'=>$this->liters,
             'time'=>$this->time,
             'performance'=>$this->performance,
-            'employee'=>Employee::find($this->employee_id),
+            'employee_id'=>$this->employee_id,
             'product'=>Product::find($this->product_id),
             'Fecha'=>$this->created_at,
         ];
