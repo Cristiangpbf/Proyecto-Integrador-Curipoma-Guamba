@@ -17,14 +17,14 @@ class Production extends JsonResource
     public function toArray($request)
     {
         return [
-//            'id'=>$this->id,
+            'id'=>$this->id,
             'total_sales'=>$this->total_sales,
             'liters'=>$this->liters,
             'time'=>$this->time,
             'performance'=>$this->performance,
             'employee_id'=>$this->employee_id,
             'product'=>Product::find($this->product_id),
-            'Fecha'=>$this->created_at,
+            'date'=>$this->created_at,
         ];
     }
 }

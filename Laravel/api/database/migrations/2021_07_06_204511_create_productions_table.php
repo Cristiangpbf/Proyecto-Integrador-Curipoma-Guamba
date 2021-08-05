@@ -14,6 +14,7 @@ class CreateProductionsTable extends Migration
     public function up()
     {
         Schema::create('productions', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->integer('total_sales');
             $table->double('liters');
             $table->string('time');

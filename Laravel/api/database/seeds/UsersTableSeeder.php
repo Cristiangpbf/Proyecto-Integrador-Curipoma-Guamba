@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name' => 'Administrador',
-            'email' => 'admicomn@prueba.',
+            'email' => 'admin@prueba.com',
             'business_name'=>'Cono Superior',
             'ruc'=>'00000000001',
             'phone'=>'0999999999',
