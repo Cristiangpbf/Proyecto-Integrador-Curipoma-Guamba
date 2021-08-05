@@ -26,6 +26,7 @@ const publicRoutes = {
   ADMIN_PRODUCCION: '/admin_produccion',
   EDIT_EMPLOYEE_ID: '/edit_empleado/:id',
   NEW_EMPLOYEE: '/new_empleado',
+  EMPLOYEE_PROD: '/empleado_produccion/:id',
 
   CLI_EDIT_PERFIL: '/cli_perfil',
   CLI_ORDERS_LIST: '/cli_lista_pedidos',
