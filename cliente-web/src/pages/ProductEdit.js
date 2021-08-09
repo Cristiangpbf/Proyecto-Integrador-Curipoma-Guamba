@@ -1,16 +1,9 @@
 import React from 'react';
-import CommentsList from '../components/CommentsList';
 import {useProduct} from '../data/useProduct';
 import ShowError from '../components/ShowError';
-import withAuth from '../hocs/withAuth';
-import {Link, useParams} from 'react-router-dom';
-import {Button, Col, Divider, Form, Image, Input, InputNumber, message, Row, Select, Skeleton, Typography} from 'antd';
+import { useParams} from 'react-router-dom';
+import {Button, Col, Divider, Form, Image, Input,  message, Row, Select} from 'antd';
 import Title from "antd/lib/typography/Title";
-import Paragraph from "antd/lib/typography/Paragraph";
-import Text from "antd/lib/typography/Text";
-import {useAuth} from "../providers/Auth";
-import Routes from "../constants/routes";
-import {ShoppingCartOutlined} from "@ant-design/icons";
 import API from "../data";
 import ErrorList from "../components/ErrorList";
 import {translateMessage} from "../utils/translateMessage";
@@ -19,7 +12,6 @@ import TextArea from "antd/lib/input/TextArea";
 
 const ProductEdit = () => {
 
-    const auth = useAuth();
     let {id} = useParams();
     const [form] = Form.useForm();
     const product = useProduct(id);
@@ -41,7 +33,9 @@ const ProductEdit = () => {
                     category_id
                 });
                 console.log('Producto', prod);
+                window.location.replace('');
                 message.success(<>Producto editado correctamente</>)
+
             }catch (e){
                 console.error( 'No se pudo editar el Producto', e );
                 const errorList = e.error && <ErrorList errors={ e.error } />;

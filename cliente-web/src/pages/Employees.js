@@ -1,20 +1,17 @@
 import React from 'react';
 import Routes from '../constants/routes';
 import API from '../data/index';
-import {Button, Card, Col, Form, Input, message, Modal, Popover, Row, Skeleton, Space, Table, Typography} from 'antd';
+import {Button, message, Modal, Popover, Row,  Space, Table, Typography} from 'antd';
 import {
     PlusCircleOutlined,
     LineChartOutlined,
     EditOutlined,
-    PhoneOutlined,
     DeleteOutlined,
-    BookOutlined,
     ExclamationCircleOutlined
 } from '@ant-design/icons';
 import ErrorList from '../components/ErrorList';
 import {translateMessage} from '../utils/translateMessage';
 import '../styles/register.css';
-import {useAuth} from "../providers/Auth";
 import {Link} from "react-router-dom";
 import {useEmployeesList} from "../data/useEmployeesList";
 import ShowError from "../components/ShowError";
@@ -29,7 +26,7 @@ const onFinish = async (id) => {
         const prodDel = await API.delete(`/employees/${id}`);
         console.log('Empleado eliminado', prodDel);
         message.success(<>Empleado eliminado correctamente</>)
-        window.location.reload(false);
+        window.location.reload(true);
     } catch (e) {
         console.error('No se pudo eliminar el Producto', e);
         const errorList = e.error && <ErrorList errors={e.error}/>;

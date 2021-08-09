@@ -32,6 +32,7 @@ const AsyncEditEmployee = loadable( () => import( '../pages/EditEmployee' ), loa
 const AsyncNewEmployee = loadable( () => import( '../pages/NewEmployee' ), loadableOptions );
 const AsyncEmployeeProd = loadable( () => import( '../pages/EmployeeProduction' ), loadableOptions );
 const AsyncEmployeeProdEdit = loadable( () => import( '../pages/EmployeeProductionEdit' ), loadableOptions );
+const AsyncEmployeeProdNew = loadable( () => import( '../pages/EmployeeProductionNew' ), loadableOptions );
 
 const AsyncProduct = loadable( () => import( '../pages/ProductDetail' ), loadableOptions );
 const AsyncProducts = loadable( () => import( '../pages/Products' ), loadableOptions );
@@ -75,6 +76,7 @@ const AppRouter = () => (
     <PublicRoute path={ Routes.NEW_EMPLOYEE } component={ AsyncNewEmployee } />
     <PublicRoute path={ Routes.EMPLOYEE_PROD } component={ AsyncEmployeeProd } />
     <PublicRoute path={ Routes.EMPLOYEE_PROD_EDIT } component={ AsyncEmployeeProdEdit } />
+    <PublicRoute path={ Routes.EMPLOYEE_PROD_NEW } component={ AsyncEmployeeProdNew } />
 
     <PublicRoute path={ Routes.ORDER } component={ AsyncOrder } />
     <PublicRoute path={ Routes.ORDERS } component={ AsyncOrders } />

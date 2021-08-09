@@ -1,18 +1,11 @@
-import React, {useState} from 'react';
-import CommentsList from '../components/CommentsList';
-import {useProduct} from '../data/useProduct';
+import React from 'react';
 import ShowError from '../components/ShowError';
-import withAuth from '../hocs/withAuth';
 import {Link, useParams} from 'react-router-dom';
-import {Button, Col, Divider, Form, Image, Input, message, Modal, Popover, Row, Select, Space, Spin, Table} from 'antd';
+import {Button, Col, message, Modal, Popover, Row, Select, Space, Spin, Table} from 'antd';
 import Title from "antd/lib/typography/Title";
 import Paragraph from "antd/lib/typography/Paragraph";
 import Routes from "../constants/routes";
-import {
-    DeleteOutlined,
-    EditOutlined,
-    ExclamationCircleOutlined, SaveOutlined
-} from "@ant-design/icons";
+import {DeleteOutlined,PlusCircleOutlined, EditOutlined,ExclamationCircleOutlined } from "@ant-design/icons";
 import API from "../data";
 import ErrorList from "../components/ErrorList";
 import {translateMessage} from "../utils/translateMessage";
@@ -20,11 +13,8 @@ import {Option} from "antd/lib/mentions";
 import {useEmployeeProduction} from "../data/useEmployeeProduction";
 import {useEmployeesList} from "../data/useEmployeesList";
 import {useEmployee} from "../data/useEmployee";
-import TextArea from "antd/lib/input/TextArea";
 
 const {confirm} = Modal;
-
-
 
 const onFinish = async (id) => {
     console.log('Recibido id del registro prod', id);
@@ -32,7 +22,7 @@ const onFinish = async (id) => {
         const production = await API.delete(`/productions/${id}`);
         console.log('Produccion eliminada', production);
         message.success(<>Producción eliminada correctamente</>)
-        window.location.reload(false);
+        window.location.reload(true);
     } catch (e) {
         console.error('No se pudo eliminar el registro', e);
         const errorList = e.error && <ErrorList errors={e.error}/>;
@@ -156,17 +146,22 @@ const EmployeeProduction = () => {
                             }
 
                         </Col>
-                        {/*<Col>*/}
-                        {/*    <Button type={"primary"}> Consultar Producción</Button>*/}
-                        {/*</Col>*/}
+
                     </Space>
+                </Row>
+                <Row >
+                    <Col span={24}>
+                        <Link to={Routes.EMPLOYEE_PROD_NEW.replace(':id', id)}>
+                            <Button style={{marginTop:15}} type={"primary"}> <PlusCircleOutlined /> Registrar producción </Button>
+                        </Link>
+                    </Col>
                 </Row>
                 <Row>
                     {
                         employeeprod.isLoading
-                            ? <Row justify='center' gutter={30}>
+                            ? <Row justify='center'>
                                 <Table
-                                    bordered
+                                    bordered style={{marginTop: 15}}
                                     loading={true}
                                     columns={columns}/>
                             </Row>
@@ -174,7 +169,7 @@ const EmployeeProduction = () => {
                             ? <ShowError error={employeeprod.isError}/>
                             : <Table bordered
                                      size={'small'}
-                                     style={{marginTop: 30}}
+                                     style={{marginTop: 15}}
                                      pagination={false}
                                      columns={columns}
                                      rowKey={record => record.id}

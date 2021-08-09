@@ -1,31 +1,22 @@
 import React from 'react';
-import CommentsList from '../components/CommentsList';
-import {useProduct} from '../data/useProduct';
 import ShowError from '../components/ShowError';
-import withAuth from '../hocs/withAuth';
-import {Link, useParams} from 'react-router-dom';
-import {Button, Col, Divider, Form, Image, Input, InputNumber, message, Row, Select, Skeleton, Typography} from 'antd';
+import {useParams} from 'react-router-dom';
+import {Button, Col, Divider, Form, Input, message, Row, Select,} from 'antd';
 import Title from "antd/lib/typography/Title";
-import Paragraph from "antd/lib/typography/Paragraph";
-import Text from "antd/lib/typography/Text";
-import {useAuth} from "../providers/Auth";
-import Routes from "../constants/routes";
-import {SaveOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import {SaveOutlined} from "@ant-design/icons";
 import API from "../data";
 import ErrorList from "../components/ErrorList";
 import {translateMessage} from "../utils/translateMessage";
 import {Option} from "antd/lib/mentions";
-import TextArea from "antd/lib/input/TextArea";
 import {useProduction} from "../data/useProduction";
 import {useProductsList} from "../data/useProductsList";
 
 const EmployeeProductionEdit = () => {
 
-        const auth = useAuth();
         let {id} = useParams();
         const [form] = Form.useForm();
         const production = useProduction(id);
-        const productsList = useProductsList();
+        const products = useProductsList();
 
 
         const onFinish = async (productionData) => {
@@ -37,7 +28,10 @@ const EmployeeProductionEdit = () => {
                     total_sales, liters, time, performance, product_id
                 });
                 console.log('Producto', prod);
-                message.success(<>Producto editado correctamente</>)
+                message.success(<>
+                    Producto editado correctamente
+                </>)
+
             } catch (e) {
                 console.error('No se pudo editar el Producto', e);
                 const errorList = e.error && <ErrorList errors={e.error}/>;
@@ -156,30 +150,26 @@ const EmployeeProductionEdit = () => {
 
                                     <Col span={12}>
                                         <Form.Item name='product_id'
-                                                   rules={[
-                                                       {
-                                                           required: true
-                                                       }
-                                                   ]}
                                                    hasFeedback
                                         >
-                                            <Select defaultValue={production.production.product.id} style={{width: 120}}>
-                                                {
-                                                    productsList.isLoading
-                                                        ? <>Cargando...</>
-                                                        : productsList.isError
-                                                        ? <ShowError error={productsList.isError}/>
-                                                        : <>
+                                            {
+                                                products.isLoading
+                                                    ? <>Cargando...</>
+                                                    : products.isError
+                                                    ? <ShowError error={products.isError}/>
+                                                    : <Select
+                                                        defaultValue={production.production.product.id}
+                                                        style={{width: 120}}>
                                                             {
-                                                                productsList.productsList.map((product, i) => (
-                                                                    <Option value={product.id} key={i}>
+                                                                products.products.map((product, i) => (
+                                                                    <Option value={product.id}>
                                                                         {product.name}
                                                                     </Option>
                                                                 ))
                                                             }
-                                                        </>
-                                                }
-                                            </Select>
+                                                    </Select>
+                                            }
+
                                         </Form.Item>
                                     </Col>
                                 </Row>
@@ -187,7 +177,7 @@ const EmployeeProductionEdit = () => {
                                 <Row>
                                     <Col span={24} style={{textAlign: 'center'}}>
                                         <Form.Item>
-                                            <Button type='primary' htmlType='submit' icon={<SaveOutlined />} >
+                                            <Button type='primary' htmlType='submit' icon={<SaveOutlined/>}>
                                                 Guardar cambios
                                             </Button>
                                         </Form.Item>

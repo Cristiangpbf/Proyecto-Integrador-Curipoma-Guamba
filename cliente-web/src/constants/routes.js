@@ -40,7 +40,8 @@ const privateRoutes = {
   NEW_PRODUCT:'/nuevo_producto',
   EDIT_PRODUCT_ID: '/edit_producto/:id',
 
-  EMPLOYEE_PROD_EDIT: '/empleado_produccion_edit/:id'
+  EMPLOYEE_PROD_EDIT: '/empleado_produccion_edit/:id',
+  EMPLOYEE_PROD_NEW: '/empleado_produccion_new/:id'
 };
 
 const Routes = {

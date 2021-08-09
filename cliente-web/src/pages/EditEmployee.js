@@ -1,25 +1,16 @@
 import React from 'react';
 import ShowError from '../components/ShowError';
-import withAuth from '../hocs/withAuth';
-import {Link, useParams} from 'react-router-dom';
-import {Button, Col, Divider, Form, Image, Input, InputNumber, message, Row, Select, Skeleton, Typography} from 'antd';
+import {useParams} from 'react-router-dom';
+import {Button, Col, Divider, Form, Input,  message, Row} from 'antd';
 import {SaveOutlined} from  '@ant-design/icons';
 import Title from "antd/lib/typography/Title";
-import Paragraph from "antd/lib/typography/Paragraph";
-import Text from "antd/lib/typography/Text";
-import {useAuth} from "../providers/Auth";
-import Routes from "../constants/routes";
-import {ShoppingCartOutlined} from "@ant-design/icons";
 import API from "../data";
 import ErrorList from "../components/ErrorList";
 import {translateMessage} from "../utils/translateMessage";
-import {Option} from "antd/lib/mentions";
-import TextArea from "antd/lib/input/TextArea";
 import {useEmployee} from "../data/useEmployee";
 
 const ProductEdit = () => {
 
-        const auth = useAuth();
         let {id} = useParams();
         const [form] = Form.useForm();
         const employee = useEmployee(id);

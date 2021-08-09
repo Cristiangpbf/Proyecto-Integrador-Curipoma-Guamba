@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {Skeleton, Card, Col, Row, Radio, Modal, Button, Divider, message} from 'antd';
+import React, {useState } from 'react';
+import {Skeleton, Card, Col, Row,  Modal, Button, Divider, message} from 'antd';
 import Routes from '../constants/routes';
 import {ShoppingCartOutlined, EditOutlined, DeleteOutlined, ExclamationCircleOutlined} from "@ant-design/icons";
 import { Link } from 'react-router-dom';
 import { useProductsList } from '../data/useProductsList';
 import ShowError from './ShowError';
 import {useAuth} from "../providers/Auth";
-import {useFilteredProductsList} from "../data/useFilteredProductsList";
 import API from "../data";
-import Title from "antd/lib/typography/Title";
 import ErrorList from "./ErrorList";
 import {translateMessage} from "../utils/translateMessage";
 
