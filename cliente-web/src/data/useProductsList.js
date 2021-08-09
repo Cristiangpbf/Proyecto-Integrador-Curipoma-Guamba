@@ -6,7 +6,7 @@ export const useProductsList = () => {
   const { data, error, mutate } = useSWR( '/products', API.fetcher );
 
   return {
-    products: data && data.data,
+    productsList: data && data.data,
     isLoading: !error && !data,
     isError: error,
     mutate
