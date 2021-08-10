@@ -35,6 +35,9 @@ class OrderController extends Controller
         return response()->json($order, 201);
     }
     public function update(Request $request, Order $order){
+
+        $request->validate(self::$rules, self::$messages);
+
         $order->update($request->all());
         return response()->json($order, 200);
     }

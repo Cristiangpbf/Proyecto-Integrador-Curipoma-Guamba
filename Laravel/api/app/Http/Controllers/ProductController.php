@@ -18,8 +18,7 @@ class ProductController extends Controller
         'consumption_time'=>'required|string',
         'img_url'=>'required|string',
         'description'=>'required|string',
-        'package_amount'=>'required|integer',
-        'category_id'=>'required'
+        'package_amount'=>'required|integer'
     ];
 
     private static $messages=[
@@ -31,30 +30,54 @@ class ProductController extends Controller
         return response()->json(new ProductCollection(Product::all()), 200);
     }
 
-    public function indexFiltered(Category $category){
-        return response()->json($category->products, 200);
-    }
-
-    public function productCategory(Product $product){
-        return response()->json($product->category, 200);
-    }
-
     public function show(Product $product){
         return new ProductResource($product);
     }
-    public function store(Request $request){
+
+    /**
+     * @param Category $category
+     * @return \Illuminate\Http\JsonResponse
+     */
+    //Productos de la categoria
+    public function indexFiltered(Category $category){
+        return response()->json(ProductResource::collection($category->products),200);
+    }
+
+    /**
+     * @param Category $category
+     * @param Product $product
+     * @return \Illuminate\Http\JsonResponse
+     */
+    //Producto de la categoria
+    public function productCategory(Category $category,Product $product)
+    {
+        $product = $category->products()->where('id',$product->id)->firstOrFail();
+        return response()->json($product, 200);
+    }
+
+    /**
+     * @param Request $request
+     * @param Category $category
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request, Category $category){
 
         $request->validate(self::$rules, self::$messages);
 
-        $product = Product::create($request->all());
+        $product = $category->products()->save(new Product($request->all()));
         return response()->json($product, 201);
     }
-    public function update(Request $request, Product $product){
-        $product->update($request->all());
+
+    public function update(Request $request, Category $category,Product $product){
+
+        $request->validate(self::$rules, self::$messages);
+
+        $product = $category->products()->where('id',$product->id)->update($request->all());
         return response()->json($product, 200);
     }
-    public function delete(Product $product){
-        $product->delete();
+
+    public function delete(Category $category,Product $product){
+        $category->products()->where('id',$product->id)->delete();
         return response()->json(null, 204);
     }
 }

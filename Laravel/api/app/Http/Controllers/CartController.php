@@ -32,6 +32,9 @@ class CartController extends Controller
         return response()->json($cart, 201);
     }
     public function update(Request $request, Cart $cart){
+
+        $request->validate(self::$rules, self::$messages);
+
         $cart->update($request->all());
         return response()->json($cart, 200);
     }

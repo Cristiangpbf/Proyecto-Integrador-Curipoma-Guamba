@@ -40,6 +40,9 @@ class ProductionController extends Controller
         return response()->json($production, 201);
     }
     public function update(Request $request, Production $production){
+
+        $request->validate(self::$rules, self::$messages);
+
         $production->update($request->all());
         return response()->json($production, 200);
     }
