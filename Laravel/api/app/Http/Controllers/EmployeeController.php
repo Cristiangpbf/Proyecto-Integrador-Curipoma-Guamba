@@ -36,6 +36,7 @@ class EmployeeController extends Controller
         return ProductionResource::collection($productions);
 //        return response()->json($employee->productions, 200);
     }
+
     public function store(Request $request){
 
         $request->validate(self::$rules, self::$messages);
@@ -43,10 +44,15 @@ class EmployeeController extends Controller
         $employee = Employee::create($request->all());
         return response()->json($employee, 201);
     }
+
     public function update(Request $request, Employee $employee){
+
+        $request->validate(self::$rules, self::$messages);
+
         $employee->update($request->all());
         return response()->json($employee, 200);
     }
+
     public function delete(Employee $employee){
         $employee->delete();
         return response()->json(null, 204);

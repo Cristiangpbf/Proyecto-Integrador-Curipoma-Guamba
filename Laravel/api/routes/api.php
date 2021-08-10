@@ -32,8 +32,8 @@ Route::group(['middleware'=>['cors']], function (){
 //Visualizacion Productos
     Route::get('products', 'ProductController@index');
     Route::get('products/{product}', 'ProductController@show');
-    Route::get('products/category/{category}', 'ProductController@indexFiltered');
-    Route::get('product/{product}/category/', 'ProductController@productCategory');
+    Route::get('categories/{category}/products', 'ProductController@indexFiltered'); //Productos de la categoria
+    Route::get('categories/{category}/products/{product}', 'ProductController@productCategory'); //Producto de la categoria
 
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
@@ -73,13 +73,15 @@ Route::group(['middleware'=>['cors']], function (){
         Route::delete('categories/{category}', 'CategoryController@delete');
 
         //Rutas Notification
-        Route::get('notifications', 'NotificationController@index');
-        Route::get('notifications/{notification}', 'NotificationController@show');
-        Route::post('notifications', 'NotificationController@store');
-        Route::put('notifications/{notification}', 'NotificationController@update');
-        Route::delete('notifications/{notification}', 'NotificationController@delete');
+        Route::get('orders/{order}/notifications', 'NotificationController@index');
+        Route::get('orders/{order}/notifications/{notification}', 'NotificationController@show');
+        Route::post('orders/{order}/notifications', 'NotificationController@store');
+        Route::put('orders/{order}/notifications/{notification}', 'NotificationController@update');
+        Route::delete('orders/{order}/notifications/{notification}', 'NotificationController@delete');
 
         //Rutas Order
+        //Route::get('users/{user}/orders', 'OrderController@index');
+        //Route::get('users/{user}/orders/{order}', 'OrderController@show');
         Route::get('orders', 'OrderController@index');
         Route::get('orders/{order}', 'OrderController@show');
         Route::post('orders', 'OrderController@store');
@@ -88,9 +90,9 @@ Route::group(['middleware'=>['cors']], function (){
 
         //Rutas Product
 
-        Route::post('products', 'ProductController@store');
-        Route::put('products/{product}', 'ProductController@update');
-        Route::delete('products/{product}', 'ProductController@delete');
+        Route::post('categories/{category}/products', 'ProductController@store');
+        Route::put('categories/{category}/products/{product}', 'ProductController@update');
+        Route::delete('categories/{category}/products/{product}', 'ProductController@delete');
 
         //Rutas Production
         Route::get('productions', 'ProductionController@index');

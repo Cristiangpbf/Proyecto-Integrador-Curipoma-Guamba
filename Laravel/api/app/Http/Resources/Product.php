@@ -25,7 +25,7 @@ class Product extends JsonResource
             'img_url'=>$this->img_url,
             'description'=>$this->description,
             'package_amount'=>$this->package_amount,
-            'category'=> Category::find($this->category_id),
+            'category'=> "/api/categories/".$this->category_id,
             'created_at'=>$this->created_at,
             'updated_at'=>$this->updated_at
         ];
