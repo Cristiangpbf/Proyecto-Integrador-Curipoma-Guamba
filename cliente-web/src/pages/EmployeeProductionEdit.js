@@ -21,11 +21,12 @@ const EmployeeProductionEdit = () => {
 
         const onFinish = async (productionData) => {
             console.log('Recibidos valores del form en onFinish ', productionData);
-            const {total_sales, liters, time, performance, product_id} = productionData;
+            const {total_sales, liters, time, performance, product_id,employee_id} = productionData;
+            // const employee_id =
 
             try {
                 const prod = await API.put(`/productions/${production.production.id}`, {
-                    total_sales, liters, time, performance, product_id
+                    total_sales, liters, time, performance, product_id, employee_id
                 });
                 console.log('Producto', prod);
                 message.success(<>
@@ -55,10 +56,22 @@ const EmployeeProductionEdit = () => {
                                       total_sales: `${production.production.total_sales}`,
                                       liters: `${production.production.liters}`,
                                       time: `${production.production.time}`,
-                                      performance: `${production.production.performance}`
+                                      performance: `${production.production.performance}`,
+                                      employee_id : `${production.production.employee_id}`,
                                   }}
                             >
+
                                 <Row justify={"center"}>
+                                    <Form.Item name='employee_id'
+                                               rules={[
+                                                   {
+                                                       required: true,
+                                                       message: 'Ingresrar una cantidad'
+                                                   }
+                                               ]}
+                                               hasFeedback
+                                    >
+                                    </Form.Item>
 
                                     <Col span={12}>
                                         <Title style={{textAlign: 'end'}} level={5}>Cantidad<Divider
@@ -150,6 +163,7 @@ const EmployeeProductionEdit = () => {
 
                                     <Col span={12}>
                                         <Form.Item name='product_id'
+                                                   initialValue={production.production.product.id}
                                                    hasFeedback
                                         >
                                             {

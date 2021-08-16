@@ -25,7 +25,7 @@ const AuthHome = ({user_type}) => {
                 <Row justify='center' gutter={30}>
 
                     <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
-                        <Link to={Routes.HOME}>
+                        <Link to={Routes.ADMIN_ORDERS}>
                             <Card
                                 hoverable
                                 style={{background: "transparent"}}
@@ -96,7 +96,7 @@ const AuthHome = ({user_type}) => {
                     </Col>
 
                     <Col xs={24} sm={12} md={8} style={{marginBottom: 30}}>
-                        <Link to={Routes.HOME}>
+                        <Link to={Routes.EMPLOYEE_PROD.replace(':id', 1)}>
                             <Card
                                 hoverable
                                 style={{background: "transparent"}}

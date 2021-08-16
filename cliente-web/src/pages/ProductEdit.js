@@ -21,7 +21,8 @@ const ProductEdit = () => {
             const { name, dimensions, flavor, texture, consumption_time, img_url, description, package_amount, category_id } = productData;
 
             try{
-                const prod = await API.put(`/products/${product.product.id}`, {
+                const prod = await API.put(`/categories/${category_id}/products/${product.product.id}`, {
+                // const prod = await API.put(`/products/${product.product.id}`, {
                     name,
                     dimensions,
                     flavor,
@@ -29,11 +30,9 @@ const ProductEdit = () => {
                     consumption_time,
                     img_url,
                     description,
-                    package_amount,
-                    category_id
+                    package_amount
                 });
                 console.log('Producto', prod);
-                window.location.replace('');
                 message.success(<>Producto editado correctamente</>)
 
             }catch (e){
@@ -63,9 +62,10 @@ const ProductEdit = () => {
                                   consumption_time: `${product.product.consumption_time}`,
                                   img_url: `${product.product.img_url}`,
                                   description: `${product.product.description}`,
-                                  package_amount: `${product.product.package_amount}`
+                                  package_amount: `${product.product.package_amount}`,
                               }}
                         >
+
                             <Row justify={"center"}>
                                 <Col span={12}>
                                     <Image src={product.product.img_url}/>
@@ -223,6 +223,17 @@ const ProductEdit = () => {
                                                 </Select>
                                             </Form.Item>
                                         </Col>
+
+                                    <Form.Item name='img_url'
+                                               rules={ [
+                                                   {
+                                                       required: true,
+                                                       message: 'Ingresa las dimensiones'
+                                                   }
+                                               ] }
+                                               hasFeedback
+                                    >
+                                    </Form.Item>
 
                                         <Col span={12}>
                                             <Form.Item>

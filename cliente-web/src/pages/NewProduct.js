@@ -20,7 +20,7 @@ const NewProduct = () => {
         const { name, dimensions, flavor, texture, consumption_time, img_url, description, package_amount, category_id } = productData;
 
         try{
-            const product = await API.post('/products', {
+            const product = await API.post(`/categories/${category_id}/products`, {
                 name,
                 dimensions,
                 flavor,
@@ -28,8 +28,7 @@ const NewProduct = () => {
                 consumption_time,
                 img_url,
                 description,
-                package_amount,
-                category_id
+                package_amount
             });
             console.log('Producto', product);
             message.success(<>Producto creado correctamente</>)

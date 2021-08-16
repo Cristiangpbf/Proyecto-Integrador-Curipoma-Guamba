@@ -50,6 +50,7 @@ const AsyncLogout = loadable( () => import( '../pages/Logout' ), loadableOptions
 
 const AsynCliEditPerfil = loadable( () => import( '../pages/CliEditPerfil' ), loadableOptions );
 const AsynCliOrdersList = loadable( () => import( '../pages/CliOrdersList' ), loadableOptions );
+const AsyncAdminOrders = loadable( () => import( '../pages/AdminOrders' ), loadableOptions );
 
 
 /**
@@ -94,6 +95,7 @@ const AppRouter = () => (
 
     <PrivateRoute path={ Routes.CLI_EDIT_PERFIL } component={ AsynCliEditPerfil } />
     <PrivateRoute path={ Routes.CLI_ORDERS_LIST } component={ AsynCliOrdersList } />
+    <PrivateRoute path={ Routes.ADMIN_ORDERS } component={ AsyncAdminOrders } />
 
     <Route component={ NotFoundPage } />
   </Switch>

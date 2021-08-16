@@ -20,7 +20,7 @@ const publicRoutes = {
   ANTD: '/antd',
   CONTACT: '/contacto',
 
-  ADMIN_PEDIDOS: '/admin_pedidos',
+  ADMIN_ORDERS: '/admin_pedidos',
   ADMIN_CLIENTES: '/admin_clientes',
   ADMIN_PRODUCTOS: '/admin_productos',
   ADMIN_PRODUCCION: '/admin_produccion',
