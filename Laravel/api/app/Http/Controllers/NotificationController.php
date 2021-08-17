@@ -50,20 +50,18 @@ class NotificationController extends Controller
     }
 
 
-    public function update(Request $request,Order $order, Notification $notification){
+    public function update(Request $request, Notification $notification){
 
         $request->validate([
             'message'=> 'required|string'
         ], self::$messages);
 
-        $notification =$order->notifications()->where('id',$notification->id)->update($request->all());
-//        $notification->update($request->all());
+        $notification->update($request->all());
         return response()->json($notification, 200);
     }
 
-    public function delete(Order $order, Notification $notification){
-        $order->notifications()->where('id',$notification->id)->delete();
-        //$notification->delete();
+    public function delete(Notification $notification){
+        $notification->delete();
         return response()->json(null, 204);
     }
 }

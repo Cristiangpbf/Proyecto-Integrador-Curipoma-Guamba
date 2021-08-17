@@ -16,7 +16,7 @@ class ProductController extends Controller
         'flavor'=>'required|string',
         'texture'=>'required|string',
         'consumption_time'=>'required|string',
-        'img_url'=>'required|string',
+        'img_url'=>'required|image|dimensions:min_width=200,min_height=200',
         'description'=>'required|string',
         'package_amount'=>'required|integer'
     ];
@@ -24,6 +24,7 @@ class ProductController extends Controller
     private static $messages=[
         'required'=>'El campo :attribute es obligatorio.',
         'string'=>'El campo :attribute no tiene el formato correcto.',
+        'image'=>'El campo :attribute no tiene el formato correcto.'
     ];
 
     public function index(){
@@ -65,19 +66,24 @@ class ProductController extends Controller
         $request->validate(self::$rules, self::$messages);
 
         $product = $category->products()->save(new Product($request->all()));
-        return response()->json($product, 201);
+
+        $path = $request->img_url->store('public/products');
+        $product->img_url=$path;
+        $product->save();
+
+        return response()->json(new ProductResource($product), 201);
     }
 
-    public function update(Request $request, Category $category,Product $product){
+    public function update(Request $request, Product $product){
 
         $request->validate(self::$rules, self::$messages);
 
-        $product = $category->products()->where('id',$product->id)->update($request->all());
+        $product->update($request->all());
         return response()->json($product, 200);
     }
 
-    public function delete(Category $category,Product $product){
-        $category->products()->where('id',$product->id)->delete();
+    public function delete(Product $product){
+        $product->delete();
         return response()->json(null, 204);
     }
 }

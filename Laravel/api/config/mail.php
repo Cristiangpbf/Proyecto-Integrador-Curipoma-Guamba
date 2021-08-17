@@ -60,6 +60,10 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'to' => [
+        'address' => 'david.curipoma@epn.edu.ec',
+        'name' => 'Cono Superior'
+    ],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
