@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewOrder;
 use App\Order;
 use App\Http\Resources\Order as OrderResource;
 use App\Http\Resources\OrderCollection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -32,7 +34,8 @@ class OrderController extends Controller
         $request->validate(self::$rules, self::$messages);
 
         $order = Order::create($request->all());
-        return response()->json($order, 201);
+        Mail::to($order->user)->send(new NewOrder($order));
+        return response()->json(new OrderResource($order), 201);
     }
     public function update(Request $request, Order $order){
 
