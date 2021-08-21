@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\User;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Order extends JsonResource
@@ -16,11 +18,12 @@ class Order extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'Comentario'=>$this->comment,
-            'Estado'=>$this->state,
-            'Cliente'=>"/api/users/".$this->user_id,
-            'Fecha Solicitud'=>$this->created_at,
-            'Fecha Entrega'=>$this->delivery_date,
+            'comment'=>$this->comment,
+            'state'=>$this->state,
+            'user'=>User::find($this->user_id),
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at,
+            'delivery_date'=>$this->delivery_date,
         ];
     }
 }
