@@ -68,7 +68,7 @@ class ProductController extends Controller
         $product = $category->products()->save(new Product($request->all()));
 
         $path = $request->img_url->store('public/products');
-        $product->img_url=$path;
+        $product->img_url = 'products/'. basename($path);
         $product->save();
 
         return response()->json(new ProductResource($product), 201);
