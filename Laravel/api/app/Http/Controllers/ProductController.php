@@ -76,7 +76,10 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product){
 
-        $request->validate(self::$rules, self::$messages);
+//        $request->validate(self::$rules, self::$messages);
+        $path = $request->img_url[0]->store('public/products');
+
+        $request->merge(['img_url'=>'products/'. basename($path)]);
 
         $product->update($request->all());
         return response()->json($product, 200);

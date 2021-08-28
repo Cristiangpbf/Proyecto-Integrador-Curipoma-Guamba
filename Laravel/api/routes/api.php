@@ -34,7 +34,7 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products/{product}', 'ProductController@show');
     Route::get('categories/{category}/products', 'ProductController@indexFiltered'); //Productos de la categoria
     Route::get('categories/{category}/products/{product}', 'ProductController@productCategory'); //Producto de la categoria
-
+    Route::get('orders', 'OrderController@index');
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
 
@@ -82,8 +82,9 @@ Route::group(['middleware'=>['cors']], function (){
         //Rutas Order
         //Route::get('users/{user}/orders', 'OrderController@index');
         //Route::get('users/{user}/orders/{order}', 'OrderController@show');
-        Route::get('orders', 'OrderController@index');
+
         Route::get('orders/{order}', 'OrderController@show');
+        Route::get('orders/{order}/products', 'OrderController@showOrderProducts'); //Productos de la orden con info del pivot
         Route::post('orders', 'OrderController@store');
         Route::put('orders/{order}', 'OrderController@update');
         Route::delete('orders/{order}', 'OrderController@delete');
