@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->text('comment');
             $table->enum('state',['en espera','en proceso','entregado','en carrito']);
-            $table->date('delivery_date');/*Cuando se estima la entrega*/
+            $table->date('delivery_date')->nullable();/*Cuando se estima la entrega*/
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();

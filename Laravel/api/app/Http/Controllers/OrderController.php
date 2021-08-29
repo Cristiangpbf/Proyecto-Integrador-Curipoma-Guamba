@@ -16,7 +16,7 @@ class OrderController extends Controller
     private static $rules =[
         'comment'=>'string',
         'state'=>'required|string',
-        'delivery_date'=>'date',
+        'delivery_date'=>'date|nullable',
     ];
 
     private static $messages=[
