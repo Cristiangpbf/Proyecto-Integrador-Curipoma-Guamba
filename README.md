@@ -54,27 +54,27 @@ Para satisfacer los requerimientos del cliente, se implementaron las siguientes 
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Info-prod1.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Info-prod2.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Info-prod3.jpg)
-* ##### ADMIN)Administración de pedidos
+* ##### (ADMIN)Administración de pedidos
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Pedidos1.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Pedido-detalle.jpg)
-* ##### ADMIN)Administración de clientes
+* ##### (ADMIN)Administración de clientes
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Clientes-list.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Clientes-edit.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Clientes-del.jpg)
-* ##### ADMIN)Administración de empleados
+* ##### (ADMIN)Administración de empleados
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Empleados-list.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Empleados-edit.jpg)
-* ##### ADMIN)Producción de empleados
+* ##### (ADMIN)Producción de empleados
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Produccion.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Produccion2.jpg)
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Produccion3.jpg)
-* ##### CLIENTE) Editar perfil
+* ##### (CLIENTE) Editar perfil
 
-* ##### CLIENTE) Lista de pedidos
+* ##### (CLIENTE) Lista de pedidos
 
-* ##### CLIENTE) Solicitar productos
+* ##### (CLIENTE) Solicitar productos
 
-* ##### CLIENTE) Carrito
+* ##### (CLIENTE) Carrito
 
 ## 4. Instalación
 
