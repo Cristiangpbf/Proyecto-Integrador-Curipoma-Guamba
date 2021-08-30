@@ -56,7 +56,7 @@ class UserController extends Controller
 
         $token = JWTAuth::fromUser($user);
 
-        return response()->json(compact('user', 'token'), 201);
+        return response()->json(compact('user'), 201);
     }
 
     public function update(Request $request, User $user){
@@ -65,6 +65,16 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email,'.$user->id.'|max:255',
             'password' => 'required|string|min:6|confirmed'
+        ]);
+
+        $user->update($request->all());
+        return response()->json($user, 200);
+    }
+
+    public function update1(Request $request, User $user){
+
+        $request->validate([
+            'name' => 'required|string|max:255'
         ]);
 
         $user->update($request->all());
@@ -114,5 +124,10 @@ class UserController extends Controller
                 "message" => "No se pudo cerrar la sesión."
             ], 500); }
 
+    }
+
+    public function delete(User $user){
+        $user->delete();
+        return response()->json(null, 204);
     }
 }

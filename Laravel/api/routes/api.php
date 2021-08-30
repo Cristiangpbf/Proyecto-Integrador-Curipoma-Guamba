@@ -34,7 +34,7 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products/{product}', 'ProductController@show');
     Route::get('categories/{category}/products', 'ProductController@indexFiltered'); //Productos de la categoria
     Route::get('categories/{category}/products/{product}', 'ProductController@productCategory'); //Producto de la categoria
-
+    Route::get('cart/count/user/{user}', 'OrderController@countProductsCartPerUser'); // Total de productos en carrito
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
 
@@ -47,7 +47,9 @@ Route::group(['middleware'=>['cors']], function (){
         Route::get('users', 'UserController@index'); //Todos los usuarios
         Route::get('users/{user}', 'UserController@show');
         Route::post('logout', 'UserController@logout');
-        Route::put('user/{user}', 'UserController@update');
+        Route::put('users/{user}', 'UserController@update');
+        Route::put('user/{user}', 'UserController@update1');//solo datos
+        Route::delete('users/{user}', 'UserController@delete');
 
         //Rutas Employee
         Route::get('employees', 'EmployeeController@index');
@@ -85,6 +87,9 @@ Route::group(['middleware'=>['cors']], function (){
         Route::get('orders', 'OrderController@index');
         Route::get('orders/{order}', 'OrderController@show');
         Route::get('orders/{order}/products', 'OrderController@showOrderProducts'); //Productos de la orden con info del pivot
+        Route::get('orders/filtered/{estado}', 'OrderController@filterOrdersEstado'); // Todas las ordenes para admin
+        Route::get('orders/filtered/{estado}/user/{user}', 'OrderController@filterOrdersEstadoUser'); // Todas las ordenes por cliente
+
         Route::post('orders', 'OrderController@store');
         Route::put('orders/{order}', 'OrderController@update');
         Route::delete('orders/{order}', 'OrderController@delete');

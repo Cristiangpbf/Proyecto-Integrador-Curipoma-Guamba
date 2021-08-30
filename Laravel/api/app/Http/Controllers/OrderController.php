@@ -8,6 +8,7 @@ use App\Order;
 use App\Http\Resources\Order as OrderResource;
 use App\Http\Resources\OrderCollection;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -38,6 +39,50 @@ class OrderController extends Controller
 
         return response()->json($order->products, 200);;
     }
+
+    public function filterOrdersEstado(String $estado){
+        if ($estado === '1'){
+            $coll = new OrderCollection(DB::select('select * from orders where state not like ?',['en carrito']));
+        }else if($estado === '2'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ?',['en espera']));
+        }else if($estado === '3'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ?',['en proceso']));
+        }else if($estado === '4'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ?',['entregado']));
+        }
+
+        return response()->json($coll, 200);
+    }
+
+    /**
+     * @param String $estado
+     * @param String $user
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function filterOrdersEstadoUser(String $estado, String $user){
+        if ($estado === '1'){
+            $coll = new OrderCollection(DB::select('select * from orders where state not like ? and user_id = ?',['en carrito',$user]));
+        }else if($estado === '2'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ? and user_id = ?',['en espera',$user]));
+        }else if($estado === '3'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ? and user_id = ?',['en proceso',$user]));
+        }else if($estado === '4'){
+            $coll = new OrderCollection(DB::select('select * from orders where state like ? and user_id = ?',['entregado',$user]));
+        }
+
+        return response()->json($coll, 200);
+    }
+
+
+    /**
+     * @param String $user_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function countProductsCartPerUser(String $user_id){
+        $coll = DB::select('SELECT COUNT(*) as tot FROM carts where order_id = (SELECT id FROM orders WHERE user_id = ?)',[$user_id]);
+        return response()->json($coll, 200);
+    }
+
     public function store(Request $request){
 
         $request->validate(self::$rules, self::$messages);
