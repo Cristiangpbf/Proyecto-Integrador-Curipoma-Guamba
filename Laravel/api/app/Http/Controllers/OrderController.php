@@ -79,8 +79,25 @@ class OrderController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function countProductsCartPerUser(String $user_id){
-        $coll = DB::select('SELECT COUNT(*) as tot FROM carts where order_id = (SELECT id FROM orders WHERE user_id = ?)',[$user_id]);
+        $coll = DB::select('SELECT COUNT(*) as tot FROM carts where order_id = (SELECT id FROM orders WHERE user_id = ? and state like ?)',[$user_id, 'en carrito']);
         return response()->json($coll, 200);
+    }
+
+    public function inCartOrder(String $user_id){
+        $consulta = DB::select('select id from orders  where state like ? and user_id = ?',['en carrito',$user_id]);
+        $order_id =$consulta[0]->id;
+
+        $order = Order::find($order_id);
+
+        return response()->json($order->products, 200);
+    }
+
+    public function getCartId(String $user_id){
+        $consulta = DB::select('select id from orders  where state like ? and user_id = ?',['en carrito',$user_id]);
+        $order_id =$consulta[0]->id;
+        $order = Order::find($order_id);
+
+        return response()->json($order, 200);
     }
 
     public function store(Request $request){

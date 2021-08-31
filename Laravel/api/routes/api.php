@@ -34,7 +34,8 @@ Route::group(['middleware'=>['cors']], function (){
     Route::get('products/{product}', 'ProductController@show');
     Route::get('categories/{category}/products', 'ProductController@indexFiltered'); //Productos de la categoria
     Route::get('categories/{category}/products/{product}', 'ProductController@productCategory'); //Producto de la categoria
-    Route::get('cart/count/user/{user}', 'OrderController@countProductsCartPerUser'); // Total de productos en carrito
+
+
 //Visualizacion Categorías
     Route::get('categories', 'CategoryController@index');
 
@@ -63,6 +64,9 @@ Route::group(['middleware'=>['cors']], function (){
         //Rutas Cart
         Route::get('carts', 'CartController@index');
         Route::get('carts/{cart}', 'CartController@show');
+        Route::get('cart/count/user/{user}', 'OrderController@countProductsCartPerUser'); // Total de productos en carrito de un usuario
+        Route::get('cart/products/{user}', 'OrderController@inCartOrder'); // Productos de carrito
+        Route::get('cart/{user}', 'OrderController@getCartId'); // Carrito de usuario
         Route::post('carts', 'CartController@store');
         Route::put('carts/{cart}', 'CartController@update');
         Route::delete('carts/{cart}', 'CartController@delete');
@@ -89,6 +93,7 @@ Route::group(['middleware'=>['cors']], function (){
         Route::get('orders/{order}/products', 'OrderController@showOrderProducts'); //Productos de la orden con info del pivot
         Route::get('orders/filtered/{estado}', 'OrderController@filterOrdersEstado'); // Todas las ordenes para admin
         Route::get('orders/filtered/{estado}/user/{user}', 'OrderController@filterOrdersEstadoUser'); // Todas las ordenes por cliente
+
 
         Route::post('orders', 'OrderController@store');
         Route::put('orders/{order}', 'OrderController@update');
