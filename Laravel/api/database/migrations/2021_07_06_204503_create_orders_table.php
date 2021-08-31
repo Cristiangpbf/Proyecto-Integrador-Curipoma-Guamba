@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->enum('state',['en espera','en proceso','entregado','en carrito']);
             $table->date('delivery_date')->nullable();/*Cuando se estima la entrega*/
             $table->unsignedBigInteger('user_id');
