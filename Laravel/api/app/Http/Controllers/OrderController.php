@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 class OrderController extends Controller
 {
     private static $rules =[
-        'comment'=>'string',
+        'comment'=>'string|nullable',
         'state'=>'required|string',
         'delivery_date'=>'date|nullable',
     ];
@@ -79,33 +79,24 @@ class OrderController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function countProductsCartPerUser(String $user_id){
-
         $consulta = DB::select('SELECT COUNT(id) as hascart FROM orders WHERE user_id = ? and state like ?', [$user_id, 'en carrito']);
         $hasCart = $consulta[0]->hascart;
-
         if($hasCart == 1){
             $coll = DB::select('SELECT COUNT(*) as tot FROM carts where
                                         order_id = (SELECT id FROM orders WHERE user_id = ? and state like ?)',[$user_id, 'en carrito']);
             return response()->json($coll, 200);
         }else if($hasCart == 0){
-//            DB::insert('INSERT INTO orders ( state , user_id) VALUES (?,?)', ['en carrito', $user_id]);
-            $order = Order::create(['state'=>'en carrito']);
+            Order::create(['state'=>'en carrito']);
             $coll = DB::select('SELECT COUNT(*) as tot FROM carts where
                                         order_id = (SELECT id FROM orders WHERE user_id = ? and state like ?)',[$user_id, 'en carrito']);
             return response()->json($coll, 200);
-
         }
-
-
-
     }
 
     public function inCartOrder(String $user_id){
         $consulta = DB::select('select id from orders  where state like ? and user_id = ?',['en carrito',$user_id]);
         $order_id =$consulta[0]->id;
-
         $order = Order::find($order_id);
-
         return response()->json($order->products, 200);
     }
 
@@ -113,18 +104,16 @@ class OrderController extends Controller
         $consulta = DB::select('select id from orders  where state like ? and user_id = ?',['en carrito',$user_id]);
         $order_id =$consulta[0]->id;
         $order = Order::find($order_id);
-
         return response()->json($order, 200);
     }
 
     public function store(Request $request){
-
         $request->validate(self::$rules, self::$messages);
-
         $order = Order::create($request->all());
         Mail::to($order->user)->send(new NewOrder($order));
         return response()->json(new OrderResource($order), 201);
     }
+
     public function update(Request $request, Order $order){
 
         $request->validate(self::$rules, self::$messages);
