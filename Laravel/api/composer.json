@@ -13,14 +13,14 @@
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
-        "tymon/jwt-auth": "dev-develop"
-    },
-    "require-dev": {
-        "facade/ignition": "^1.16.15",
+        "tymon/jwt-auth": "dev-develop",
         "fakerphp/faker": "^1.9.1",
+        "facade/ignition": "^1.16.15",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.5.8|^9.3.3"
+    },
+    "require-dev": {
     },
     "config": {
         "optimize-autoloader": true,
@@ -58,6 +58,7 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "post-install-cmd": [ "ln -sr storage/app/public public/storage" ]
     }
 }
