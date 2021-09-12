@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
         //Crear datos ficticios en la tabla
         for($i = 0; $i < 15; $i++){
             $aux = $i+1;
-            $image_name = $faker->image(public_path('public/storage/products'), 400, 300, null, false);
+            $image_name = $faker->image('public/storage/products', 400, 300, null, false);
             Product::create([
                 'name'=>"producto{$aux}",
                 'dimensions'=>"{$faker->numberBetween(1, 10)}cm x {$faker->numberBetween(1, 10)}cm x {$faker->numberBetween(1, 10)}cm",
