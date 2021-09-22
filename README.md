@@ -9,7 +9,7 @@ El siguiente proyecto consta de los siguientes componentes principales:
 
 ## Video demostrativo 📽
 
-Enlace: [YouTube](https://youtube.com)
+Enlace: [YouTube](https://youtu.be/rmZTDK4XNcw)
 
 ## Autores ✒️
 
