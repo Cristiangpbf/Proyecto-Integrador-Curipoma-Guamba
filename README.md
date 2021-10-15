@@ -11,9 +11,9 @@ El siguiente proyecto consta de los siguientes componentes principales:
 
 Enlace: [YouTube](https://youtu.be/rmZTDK4XNcw)
 
-## Manual de usuario 📕
+## Manual técnico 📕
 
-Enlace: [Manual de Usuario](https://github.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/blob/main/MANUAL%20T%C3%89CNICO/Manual_Tecnico_Curipoma_Guamba.pdf)
+Enlace: [Manual de técnico](https://github.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/blob/main/MANUAL%20T%C3%89CNICO/Manual_Tecnico_Curipoma_Guamba.pdf)
 
 ## Autores ✒️
 
