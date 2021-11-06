@@ -82,13 +82,12 @@ Para satisfacer los requerimientos del cliente, se implementaron las siguientes 
 
 ### Cliente Móvil
 
-| **Pantalla Inicio de sesión** |
-| ------------- |
-|![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_login.jpg)|
+* ##### Pantalla Inicio de sesión
+![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_login.jpg)
 
 * ##### (ADMIN)Menú principal
-
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_menu_admin.jpg)
+
 * ##### (ADMIN)Pedidos
 
 | **Lista de pedidos** | **Editar pedido** | **Detalle de pedido** | 
@@ -97,22 +96,29 @@ Para satisfacer los requerimientos del cliente, se implementaron las siguientes 
 
 * ##### (ADMIN)Lista de clientes
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_lista_clientes.jpg)
-* ##### (ADMIN)Lista de empleados, producción empleado
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_lista_empleados.jpg)
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_produccion_empleados.jpg)
+
+* ##### (ADMIN)Empleados
+
+| **Lista de empleados** | **Producción empleado** | 
+| ------------- | ------------- | 
+|![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_lista_empleados.jpg)| ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_produccion_empleados.jpg)|
+
 * ##### (CLIENTE)Menú principal
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_menu_cliente.jpg)
-* ##### (CLIENTE)Pedidos en espera, editar pedido
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_orden_espera_cliente.jpg)
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_editar_orden_cliente.jpg)
+* ##### (CLIENTE)Pedidos en espera
+
+| **Lista de pedidos en espera** | **Editar pedido** | 
+| ------------- | ------------- | 
+|![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_orden_espera_cliente.jpg)| ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_editar_orden_cliente.jpg)|
 * ##### (CLIENTE)Pedidos en proceso
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_orden_proceso_cliente.jpg)
 * ##### (CLIENTE)Lista de productos
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_lista_productos.jpg)
-* ##### (CLIENTE)Nuevo pedido, carrito pedido, solicitar pedido
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_nueva_orden.jpg)
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_carrito_orden.jpg)
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_solicitar_orden.jpg)
+* ##### (CLIENTE)Nuevo pedido
+
+| **Agregar a carrito** | **Carrito** | **Solicitar pedido** | 
+| ------------- | ------------- | ------------- | 
+|![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_nueva_orden.jpg)| ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_carrito_orden.jpg)| ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_solicitar_orden.jpg)|
 
 ## 4. Instalación
 
