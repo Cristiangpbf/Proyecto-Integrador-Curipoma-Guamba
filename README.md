@@ -81,8 +81,8 @@ Para satisfacer los requerimientos del cliente, se implementaron las siguientes 
 * ##### (CLIENTE) Carrito
 
 ### Cliente Móvil
-* ##### Pantalla Inicio de sesión 
-![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_login.jpg)
+* ##### Pantalla Inicio de sesión
+![myimage-alt-tag](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_login.jpg)
 * ##### (ADMIN)Menú principal
 ![Imagen.jpg](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/app_menu_admin.jpg)
 * ##### (ADMIN)Lista de pedidos, editar pedido, detalle de pedido
