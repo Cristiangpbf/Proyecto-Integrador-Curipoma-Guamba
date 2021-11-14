@@ -110,7 +110,7 @@ class OrderController extends Controller
     public function store(Request $request){
         $request->validate(self::$rules, self::$messages);
         $order = Order::create($request->all());
-        Mail::to($order->user)->send(new NewOrder($order));
+        //Mail::to($order->user)->send(new NewOrder($order));
         return response()->json(new OrderResource($order), 201);
     }
 
