@@ -119,6 +119,9 @@ class OrderController extends Controller
         $request->validate(self::$rules, self::$messages);
 
         $order->update($request->all());
+        if ($order->state === 'en espera'){
+            Mail::to($order->user)->send(new NewOrder($order));
+        }
         return response()->json($order, 200);
     }
     public function delete(Order $order){
