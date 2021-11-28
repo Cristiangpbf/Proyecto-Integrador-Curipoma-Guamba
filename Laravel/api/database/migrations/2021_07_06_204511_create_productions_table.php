@@ -16,7 +16,7 @@ class CreateProductionsTable extends Migration
         Schema::create('productions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('total_sales');
-            $table->double('liters');
+            $table->integer('liters');
             $table->string('time');
             $table->string('performance');
             $table->unsignedBigInteger('employee_id');

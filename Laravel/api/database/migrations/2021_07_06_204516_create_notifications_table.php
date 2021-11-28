@@ -17,7 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->bigIncrements('id');
             $table->text('message');
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('restrict');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
     }
