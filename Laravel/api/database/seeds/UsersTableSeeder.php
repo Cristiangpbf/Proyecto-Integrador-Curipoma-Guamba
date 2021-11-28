@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
     {
         // Vaciar la tabla
         User::truncate();
-        $faker = \Faker\Factory::create();
+        //$faker = \Faker\Factory::create();
 
         // Crear la misma clave para todos los usuarios (Encriptado)
         $password = Hash::make('123123');
