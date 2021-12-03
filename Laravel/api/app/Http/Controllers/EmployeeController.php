@@ -13,8 +13,8 @@ class EmployeeController extends Controller
     private static $rules =[
         'name'=>'required|string',
         'email'=>'required|string|email',
-        'phone'=>'required|numeric|max:10',
-        'dni'=>'required|numeric|max:10',
+        'phone'=>'required|numeric|digits:10',
+        'dni'=>'required|numeric|digits:10',
     ];
 
     private static $messages=[

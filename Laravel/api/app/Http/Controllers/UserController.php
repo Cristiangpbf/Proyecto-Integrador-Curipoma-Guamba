@@ -33,8 +33,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'business_name' => 'required|string|max:100',
-            'ruc' => 'required|numeric|size:13',
-            'phone' => 'required|numeric|max:10',
+            'ruc' => 'required|numeric|digits:13',
+            'phone' => 'required|numeric|digits:10',
             'address' => 'required|string|max:250',
             'type' => 'required',
             'email' => 'required|string|email|max:50|unique:users',

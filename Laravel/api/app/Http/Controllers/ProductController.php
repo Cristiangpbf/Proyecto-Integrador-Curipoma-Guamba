@@ -18,7 +18,7 @@ class ProductController extends Controller
         'consumption_time'=>'required|string|max:10',
         'img_url'=>'required|image|dimensions:min_width=200,min_height=200',
         'description'=>'required|string',
-        'package_amount'=>'required|integer|max:3'
+        'package_amount'=>'required|integer|max:1000'
     ];
 
     private static $messages=[

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ProductionController extends Controller
 {
     private static $rules =[
-        'total_sales'=>'required|integer|max:4',
+        'total_sales'=>'required|integer|max:1000',
         'liters'=>'required|integer|max:10',
         'time'=>'required|string',
         'performance'=>'required|string',
