@@ -13,7 +13,7 @@ class EmployeeController extends Controller
     private static $rules =[
         'name'=>'required|string',
         'email'=>'required|string|email',
-        'phone'=>'required|numeric|digits:10',
+        'phone'=>'required|numeric|digits_between:6,10',
         'dni'=>'required|numeric|digits:10',
     ];
 

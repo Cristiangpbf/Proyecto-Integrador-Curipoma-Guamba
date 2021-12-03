@@ -11,7 +11,7 @@ class ProductionController extends Controller
 {
     private static $rules =[
         'total_sales'=>'required|integer|max:1000',
-        'liters'=>'required|integer|max:10',
+        'liters'=>'required|integer|max:50',
         'time'=>'required|string',
         'performance'=>'required|string',
         'employee_id'=>'required',

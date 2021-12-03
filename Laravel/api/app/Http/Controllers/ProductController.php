@@ -12,13 +12,13 @@ class ProductController extends Controller
 {
     private static $rules =[
         'name'=>'required|string|max:100',
-        'dimensions'=>'required|string|max:10',
+        'dimensions'=>'required|string|max:50',
         'flavor'=>'required|string|max:10',
         'texture'=>'required|string|max:50',
-        'consumption_time'=>'required|string|max:10',
+        'consumption_time'=>'required|string|max:50',
         'img_url'=>'required|image|dimensions:min_width=200,min_height=200',
         'description'=>'required|string',
-        'package_amount'=>'required|integer|max:1000'
+        'package_amount'=>'required|integer|max:2000'
     ];
 
     private static $messages=[
