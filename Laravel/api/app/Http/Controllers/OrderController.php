@@ -21,9 +21,9 @@ class OrderController extends Controller
     ];
 
     private static $messages=[
-        'required'=>'El campo :attribute es obligatorio.',
+        'state.required'=>'El campo estado es obligatorio.',
         'string'=>'El campo :attribute no tiene el formato correcto.',
-        'date'=>"El campo :attribute no tiene el formato correcto."
+        'delivery_date.date'=>"La fecha no tiene el formato correcto."
     ];
 
     public function index(){

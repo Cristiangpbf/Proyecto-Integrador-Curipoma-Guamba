@@ -31,9 +31,15 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed'
+            'name' => 'required|string|max:100',
+            'business_name' => 'required|string|max:100',
+            'ruc' => 'required|integer|max:13',
+            'phone' => 'required|numeric|max:10',
+            'address' => 'required|string|max:250',
+            'type' => 'required',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+
         ]);
 
 /*        $validator = Validator::make($request->all(), [
@@ -62,9 +68,13 @@ class UserController extends Controller
     public function update(Request $request, User $user){
 
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:100',
             'email' => 'required|string|email|unique:users,email,'.$user->id.'|max:255',
-            'password' => 'required|string|min:6|confirmed'
+            'business_name' => 'required|string|max:100',
+            'ruc' => 'required|integer|max:13',
+            'phone' => 'required|numeric|max:10',
+            'address' => 'required|string|max:250',
+            //'password' => 'required|string|min:6|confirmed'
         ]);
 
         $user->update($request->all());
@@ -74,7 +84,13 @@ class UserController extends Controller
     public function update1(Request $request, User $user){
 
         $request->validate([
-            'name' => 'required|string|max:255'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users,email,'.$user->id.'|max:255',
+            'business_name' => 'required|string|max:100',
+            'ruc' => 'required|integer|max:13',
+            'phone' => 'required|numeric|max:10',
+            'address' => 'required|string|max:250',
+            //'password' => 'required|string|min:6|confirmed'
         ]);
 
         $user->update($request->all());

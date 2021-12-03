@@ -11,20 +11,29 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     private static $rules =[
-        'name'=>'required|string',
-        'dimensions'=>'required|string',
-        'flavor'=>'required|string',
-        'texture'=>'required|string',
-        'consumption_time'=>'required|string',
+        'name'=>'required|string|max:100',
+        'dimensions'=>'required|string|max:10',
+        'flavor'=>'required|string|max:10',
+        'texture'=>'required|string|max:50',
+        'consumption_time'=>'required|string|max:10',
         'img_url'=>'required|image|dimensions:min_width=200,min_height=200',
         'description'=>'required|string',
-        'package_amount'=>'required|integer'
+        'package_amount'=>'required|integer|max:3'
     ];
 
     private static $messages=[
-        'required'=>'El campo :attribute es obligatorio.',
+        'name.required'=>'El campo nombre es obligatorio.',
+        'dimensions.required'=>'El campo dimensiones es obligatorio.',
+        'flavor.required'=>'El campo sabor es obligatorio.',
+        'texture.required'=>'El campo textura es obligatorio.',
+        'consumption_time.required'=>'El campo tiempo de consumo es obligatorio.',
+        'img_url.required'=>'Inserte una imagen.',
+        'description.required'=>'El campo descripción es obligatorio.',
+        'package_amount.required'=>'El campo cantidad es obligatorio.',
         'string'=>'El campo :attribute no tiene el formato correcto.',
-        'image'=>'El campo :attribute no tiene el formato correcto.'
+        'img_url.image'=>'La imagen no tiene el formato correcto.',
+        'package_amount.integer'=>'La cantidad debe ser un valor entero.',
+        'package_amount.max'=>'La cantidad no debe ser mayo a :max dígitos.'
     ];
 
     public function index(){

@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class ProductionController extends Controller
 {
     private static $rules =[
-        'total_sales'=>'required|integer',
-        'liters'=>'required|numeric',
+        'total_sales'=>'required|integer|max:4',
+        'liters'=>'required|integer|max:10',
         'time'=>'required|string',
         'performance'=>'required|string',
         'employee_id'=>'required',
@@ -19,10 +19,13 @@ class ProductionController extends Controller
     ];
 
     private static $messages=[
-        'required'=>'El campo :attribute es obligatorio.',
+        'total_sales.required'=>'El campo cantidad es obligatorio.',
+        'liters.required'=>'El campo cantidad es obligatorio.',
+        'time.required'=>'El campo cantidad es obligatorio.',
+        'performance.required'=>'El campo cantidad es obligatorio.',
         'string'=>'El campo :attribute no tiene el formato correcto.',
-        'integer'=>"El campo :attribute no tiene el formato correcto.",
-        'numeric'=>"El campo :attribute no tiene el formato correcto."
+        'total_sales.integer'=>"El campo cantidad debe ser un número entero.",
+        'liters.integer'=>"El campo litros debe ser un número entero.",
     ];
 
     public function index(){
