@@ -36,7 +36,7 @@ Este SDK permite crear aplicaciones de rápida reacción y con utilitarios pensa
 ## 2. Patrón arquitectónico
 ### Patrón utilizado
 
-![Arquitectura-Api-Rest](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Arquitectura-Api-Rest.jpg)
+![Arquitectura-Api-Rest](https://raw.githubusercontent.com/Cristiangpbf/Proyecto-Integrador-Curipoma-Guamba/main/imagenes-read/Nuevo-Arquitectura-Api-Rest.jpg)
 
 ### Estructura BDD
 
